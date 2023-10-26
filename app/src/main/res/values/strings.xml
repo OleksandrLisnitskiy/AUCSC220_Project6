@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Memory Card Game</string>
+    <string name="enter_the_number_to_factor">Enter the number to factor?</string>
+    <string name="button">Button</string>
+</resources>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="415dp"
+        android:layout_height="894dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="318dp"
+            android:layout_height="66dp"
+            android:layout_marginBottom="56dp"
+            android:text="Start"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="232dp"
+            android:text="Choose the level:"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.158"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Memory card Game"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.359"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:layout_width="392dp"
+            android:layout_height="227dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.478"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.535">
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="247dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="68dp"
+                android:background="#71D85A"
+                android:backgroundTint="#71D85A"
+                android:text="Level 1(8 cards)"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/radioButton"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/radioButton"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="247dp"
+                android:layout_height="53dp"
+                android:layout_marginTop="4dp"
+                android:background="#FFEB3B"
+                android:backgroundTint="#FFEB3B"
+                android:text="Level 2(12 cards)"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/radioButton3"
+                tools:layout_editor_absoluteX="34dp" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="247dp"
+                android:layout_height="49dp"
+                android:layout_marginTop="4dp"
+                android:background="#FF0000"
+                android:backgroundTint="#FF0000"
+                android:text="Level 3(18 cards)"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/radioButton"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/radioButton"
+                app:layout_constraintTop_toBottomOf="@+id/radioButton" />
+
+        </RadioGroup>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
