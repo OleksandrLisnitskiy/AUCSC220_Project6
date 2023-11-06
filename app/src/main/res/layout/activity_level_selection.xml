@@ -21,4 +21,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/sound_button_on" />
 
+    <android.widget.Button
+        android:id="@+id/backButton"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/back_button"
+        android:onClick="backButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
