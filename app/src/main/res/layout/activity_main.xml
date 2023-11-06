@@ -35,12 +35,13 @@
     </FrameLayout>
 
     <android.widget.Button
-        android:id="@+id/button"
+        android:id="@+id/startButton"
         android:layout_width="334dp"
         android:layout_height="79dp"
         android:layout_marginTop="31.5dp"
         android:background="@drawable/button_start_menu"
         android:fontFamily="@font/african"
+        android:onClick="openLevelSelection"
         android:text="Start"
         android:textColor="#c4a8ff"
         android:textSize="30pt"
@@ -56,12 +57,13 @@
         android:layout_marginTop="40dp"
         android:background="@drawable/button_start_menu"
         android:fontFamily="@font/african"
+        android:onClick="openTopScore"
         android:text="Top Score"
         android:textColor="#c4a8ff"
         android:textSize="30pt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/startButton"
         tools:ignore="HardcodedText,MissingConstraints" />
 
     <android.widget.Button
@@ -71,6 +73,7 @@
         android:layout_marginTop="40dp"
         android:background="@drawable/button_start_menu"
         android:fontFamily="@font/african"
+        android:onClick="Quit"
         android:text="Quit"
         android:textColor="#c4a8ff"
         android:textSize="30pt"
@@ -82,14 +85,15 @@
         tools:ignore="HardcodedText,MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/Sound"
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginStart="15dp"
         android:layout_marginBottom="15dp"
+        android:importantForAccessibility="no"
+        android:onClick="SoundChange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/sound_button_on"
-        android:importantForAccessibility="no" />
+        app:srcCompat="@drawable/sound_button_on" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MediumLevel extends AppCompatActivity {
+public class MediumLevel extends MainActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

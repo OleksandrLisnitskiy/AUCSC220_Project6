@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class HardLevel extends AppCompatActivity {
+public class HardLevel extends MainActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

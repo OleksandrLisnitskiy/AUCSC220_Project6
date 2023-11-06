@@ -1,10 +1,12 @@
 package com.example.memorycardgame;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class LevelSelection extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+
+
+public class LevelSelection extends MainActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

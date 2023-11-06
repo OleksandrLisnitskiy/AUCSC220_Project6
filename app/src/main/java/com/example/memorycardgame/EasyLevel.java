@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class EasyLevel extends AppCompatActivity {
+public class EasyLevel extends MainActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

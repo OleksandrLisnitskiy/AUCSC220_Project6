@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <shape>
-            <gradient android:angle="125" android:type="radial"
-
-                android:endColor="#4F31225B" android:startColor="#31225B" />
-            <corners android:radius="35dp"/>
-        </shape>
-    </item>
 
 
 
-    <item android:bottom="8dp" android:right="6dp">
+
+    <item android:bottom="6dp" android:right="3dp">
         <!--                Button-->
         <shape>
 
-            <solid android:color="#3F306A" />
+            <solid android:color="#3B2A69" />
             <corners android:radius="35dp"/>
         </shape>
     </item>
