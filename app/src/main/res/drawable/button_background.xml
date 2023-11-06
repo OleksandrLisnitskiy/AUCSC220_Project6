@@ -9,6 +9,7 @@
                     <corners android:radius="35dp"/>
                 </shape>
             </item>
+
             <item android:bottom="4dp" android:right="3dp">
 <!--                Button-->
                 <shape>
@@ -17,6 +18,4 @@
                     <corners android:radius="35dp"/>
                 </shape>
             </item>
-
-
 </layer-list>
