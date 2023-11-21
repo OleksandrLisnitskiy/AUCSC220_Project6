@@ -25,12 +25,14 @@
         android:id="@+id/backButton"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
         android:background="@drawable/back_button"
         android:onClick="backButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.019"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.015" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -49,6 +51,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginTop="44dp"
+        android:onClick="openEasyLevel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
