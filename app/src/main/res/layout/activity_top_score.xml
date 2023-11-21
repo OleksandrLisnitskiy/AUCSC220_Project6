@@ -35,10 +35,10 @@
         android:id="@+id/imageView3"
         android:layout_width="225dp"
         android:layout_height="225dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="56dp"
         android:background="@drawable/background_for_top_score"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView">
 
@@ -128,12 +128,12 @@
         android:id="@+id/imageView5"
         android:layout_width="225dp"
         android:layout_height="225dp"
-        android:layout_marginEnd="18dp"
+        android:layout_marginStart="212dp"
         android:background="@drawable/background_for_top_score"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875">
+        app:layout_constraintVertical_bias="0.873">
 
         <TextView
             android:id="@+id/textView8"
@@ -223,9 +223,10 @@
         android:background="@drawable/background_for_top_score"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875">
+        app:layout_constraintVertical_bias="0.874">
 
         <TextView
             android:id="@+id/textView12"
@@ -312,11 +313,13 @@
         android:id="@+id/backButton"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
         android:background="@drawable/back_button"
         android:onClick="backButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.019"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.015" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
