@@ -85,10 +85,10 @@
 
     <ImageView
         android:id="@+id/Sound"
-        android:layout_width="77dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="4dp"
         android:importantForAccessibility="no"
         android:onClick="SoundChange"
         app:layout_constraintBottom_toBottomOf="parent"

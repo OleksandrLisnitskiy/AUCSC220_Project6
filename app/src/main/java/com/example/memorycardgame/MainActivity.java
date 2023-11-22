@@ -12,11 +12,13 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private boolean turnedOn = false;
+    public static boolean isSoundOn = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        updateSoundButton();
 
 
         // Set the onClickListener using the method
@@ -41,14 +43,22 @@ public class MainActivity extends AppCompatActivity {
 
     public void SoundChange(View v){
         ImageView button = findViewById(R.id.Sound);
-
-        if (turnedOn) {
-            button.setBackgroundResource(R.drawable.sound_button_on); // Switch to image2
-        } else {
-            button.setBackgroundResource(R.drawable.sound_button_off); // Switch to image1
-        }
-        turnedOn = !turnedOn;
+        isSoundOn = !isSoundOn;
+        updateSoundButton();
     }
 
+    private void updateSoundButton() {
+        ImageView button = findViewById(R.id.Sound);
+        if (isSoundOn) {
+            button.setBackgroundResource(R.drawable.sound_button_on);
+        } else {
+            button.setBackgroundResource(R.drawable.sound_button_off);
+        }
+    }
+
+    protected void onResume() {
+        super.onResume();
+        updateSoundButton();
+    }
 
 }
