@@ -10,6 +10,226 @@
     tools:context=".HardLevel">
 
     <ImageView
+        android:id="@+id/imageView68"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="312dp"
+        android:layout_marginTop="668dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView66"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="668dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView67"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="668dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView63"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="556dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView64"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="312dp"
+        android:layout_marginTop="556dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView65"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="668dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView62"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="556dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView61"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="556dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView60"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="312dp"
+        android:layout_marginTop="440dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView58"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="440dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView59"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="440dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView53"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="324dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView54"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="324dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView55"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="312dp"
+        android:layout_marginTop="324dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView52"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="324dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView49"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="212dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView50"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="212dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView51"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="312dp"
+        android:layout_marginTop="212dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView48"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="212dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView45"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView46"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView47"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="312dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
         android:id="@+id/Sound"
         android:layout_width="65dp"
         android:layout_height="65dp"
@@ -20,5 +240,83 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/sound_button_on" />
+
+    <ImageView
+        android:id="@+id/imageView44"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView57"
+        android:layout_width="117dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="440dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView69"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        app:srcCompat="@drawable/pause_button"
+        tools:layout_editor_absoluteX="351dp"
+        tools:layout_editor_absoluteY="784dp" />
+
+    <ImageView
+        android:id="@+id/imageView70"
+        android:layout_width="214dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/score_on_the_board" />
+
+    <ImageView
+        android:id="@+id/imageView71"
+        android:layout_width="214dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="229dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/score_on_the_board" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="182dp"
+        android:layout_height="50dp"
+        android:fontFamily="@font/african"
+        android:text="Time:  1:30"
+        android:textColor="#c4a8ff"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.988"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.033" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="182dp"
+        android:layout_height="50dp"
+        android:fontFamily="@font/african"
+        android:text="Score:  123"
+        android:textColor="#c4a8ff"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.033" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
