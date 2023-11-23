@@ -10,6 +10,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
 import android.media.MediaPlayer;
+import android.media.AudioManager;
+import android.content.Context;
+
+
+
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
     private boolean turnedOn = false;
@@ -21,8 +27,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         updateSoundButton();
+        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        if (audioManager != null) {
+            int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, maxVolume, 0);
+        }
         if (mediaPlayer == null) {
             mediaPlayer = MediaPlayer.create(this, R.raw.background_music);
+            mediaPlayer.setVolume(1.0f, 1.0f);
             mediaPlayer.setLooping(true);
             if (isSoundOn) {
                 mediaPlayer.start();
@@ -109,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer = null;
         }
     }
+
 
 
 }
