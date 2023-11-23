@@ -21,17 +21,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         updateSoundButton();
-        // Setup MediaPlayer
-        mediaPlayer = MediaPlayer.create(this, R.raw.background_music);
-        mediaPlayer.setLooping(true);
-
-        // Start playing the sound if the sound is turned on
-        if (isSoundOn) {
-            mediaPlayer.start();
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(this, R.raw.background_music);
+            mediaPlayer.setLooping(true);
+            if (isSoundOn) {
+                mediaPlayer.start();
+            }
         }
-
-
-
     }
     public void onButton1Clicked(View v) {
         setContentView(R.layout.activity_easy_level);
@@ -84,23 +80,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-    @Override
-    protected void onPause() {
-        super.onPause();
-        // Pause the MediaPlayer when the activity is not visible
-        if (mediaPlayer.isPlaying()) {
-            mediaPlayer.pause();
+    protected void onResume() {
+        super.onResume();
+        updateSoundButton();
+        if (isSoundOn && mediaPlayer != null && !mediaPlayer.isPlaying()) {
+            mediaPlayer.start();
         }
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        // Resume the MediaPlayer if the sound is turned on
-        if (isSoundOn) {
-            mediaPlayer.start();
+    protected void onPause() {
+        super.onPause();
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
         }
-        updateSoundButton();
     }
 
     public void playSound(View view) { // Call this method when you want to play the sound
