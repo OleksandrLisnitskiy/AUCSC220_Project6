@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.media.MediaPlayer;
 
 public class MainActivity extends AppCompatActivity {
-    private boolean turnedOn = false;
     public static boolean isSoundOn = true;
     private MediaPlayer mediaPlayer;
 
