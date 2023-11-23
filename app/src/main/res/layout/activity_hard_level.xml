@@ -10,16 +10,6 @@
     tools:context=".HardLevel">
 
     <ImageView
-        android:id="@+id/imageView68"
-        android:layout_width="128dp"
-        android:layout_height="109dp"
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="672dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/card_for_hard_level" />
-
-    <ImageView
         android:id="@+id/imageView66"
         android:layout_width="128dp"
         android:layout_height="109dp"
@@ -44,16 +34,6 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="196dp"
-        android:layout_marginTop="556dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/card_for_hard_level" />
-
-    <ImageView
-        android:id="@+id/imageView64"
-        android:layout_width="128dp"
-        android:layout_height="109dp"
-        android:layout_marginStart="300dp"
         android:layout_marginTop="556dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -85,16 +65,6 @@
         android:layout_height="109dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="556dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/card_for_hard_level" />
-
-    <ImageView
-        android:id="@+id/imageView60"
-        android:layout_width="128dp"
-        android:layout_height="109dp"
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="440dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -140,16 +110,6 @@
         app:srcCompat="@drawable/card_for_hard_level" />
 
     <ImageView
-        android:id="@+id/imageView55"
-        android:layout_width="128dp"
-        android:layout_height="109dp"
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="324dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/card_for_hard_level" />
-
-    <ImageView
         android:id="@+id/imageView52"
         android:layout_width="128dp"
         android:layout_height="109dp"
@@ -174,16 +134,6 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="196dp"
-        android:layout_marginTop="212dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/card_for_hard_level" />
-
-    <ImageView
-        android:id="@+id/imageView51"
-        android:layout_width="128dp"
-        android:layout_height="109dp"
-        android:layout_marginStart="300dp"
         android:layout_marginTop="212dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -223,8 +173,58 @@
         android:id="@+id/imageView47"
         android:layout_width="128dp"
         android:layout_height="109dp"
-        android:layout_marginStart="300dp"
+        android:layout_marginStart="288dp"
         android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView51"
+        android:layout_width="128dp"
+        android:layout_height="109dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginTop="212dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView60"
+        android:layout_width="128dp"
+        android:layout_height="109dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginTop="440dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView68"
+        android:layout_width="128dp"
+        android:layout_height="109dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginTop="672dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView64"
+        android:layout_width="128dp"
+        android:layout_height="109dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginTop="556dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/card_for_hard_level" />
+
+    <ImageView
+        android:id="@+id/imageView55"
+        android:layout_width="128dp"
+        android:layout_height="109dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginTop="324dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -265,9 +265,13 @@
         android:id="@+id/imageView69"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        app:srcCompat="@drawable/pause_button"
-        tools:layout_editor_absoluteX="351dp"
-        tools:layout_editor_absoluteY="795dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.994"
+        app:srcCompat="@drawable/pause_button" />
 
     <ImageView
         android:id="@+id/imageView70"
@@ -283,7 +287,7 @@
         android:id="@+id/imageView71"
         android:layout_width="214dp"
         android:layout_height="78dp"
-        android:layout_marginStart="229dp"
+        android:layout_marginStart="216dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -299,7 +303,7 @@
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.988"
+        app:layout_constraintHorizontal_bias="0.936"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.033" />
