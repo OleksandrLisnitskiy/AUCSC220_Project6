@@ -14,7 +14,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="672dp"
+        android:layout_marginTop="624dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -24,7 +24,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="196dp"
-        android:layout_marginTop="672dp"
+        android:layout_marginTop="624dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -34,7 +34,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="196dp"
-        android:layout_marginTop="556dp"
+        android:layout_marginTop="516dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -44,7 +44,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="672dp"
+        android:layout_marginTop="624dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -54,7 +54,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="556dp"
+        android:layout_marginTop="516dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -64,7 +64,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="556dp"
+        android:layout_marginTop="516dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -74,7 +74,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="408dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -84,7 +84,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="196dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="408dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -94,7 +94,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="324dp"
+        android:layout_marginTop="300dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -104,7 +104,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="196dp"
-        android:layout_marginTop="324dp"
+        android:layout_marginTop="300dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -114,7 +114,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="324dp"
+        android:layout_marginTop="300dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -124,7 +124,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="192dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -134,7 +134,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="196dp"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="192dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -144,7 +144,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="192dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -154,7 +154,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="84dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -164,7 +164,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="196dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="84dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -174,7 +174,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="288dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="84dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -184,7 +184,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="288dp"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="192dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -194,7 +194,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="288dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="408dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -204,7 +204,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="288dp"
-        android:layout_marginTop="672dp"
+        android:layout_marginTop="624dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -214,7 +214,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="288dp"
-        android:layout_marginTop="556dp"
+        android:layout_marginTop="516dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -224,7 +224,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="288dp"
-        android:layout_marginTop="324dp"
+        android:layout_marginTop="300dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -246,7 +246,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="84dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
@@ -256,7 +256,7 @@
         android:layout_width="128dp"
         android:layout_height="109dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="408dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_for_hard_level" />
