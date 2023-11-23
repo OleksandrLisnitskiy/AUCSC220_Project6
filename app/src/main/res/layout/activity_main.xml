@@ -93,6 +93,7 @@
         android:onClick="SoundChange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/sound_button_on" />
+        app:srcCompat="@drawable/sound_button_on"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

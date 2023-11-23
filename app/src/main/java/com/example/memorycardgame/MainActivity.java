@@ -9,19 +9,29 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
+import android.media.MediaPlayer;
 
 public class MainActivity extends AppCompatActivity {
     private boolean turnedOn = false;
     public static boolean isSoundOn = true;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         updateSoundButton();
+        // Setup MediaPlayer
+        mediaPlayer = MediaPlayer.create(this, R.raw.background_music);
+        mediaPlayer.setLooping(true);
+
+        // Start playing the sound if the sound is turned on
+        if (isSoundOn) {
+            mediaPlayer.start();
+        }
 
 
-        // Set the onClickListener using the method
+
     }
     public void onButton1Clicked(View v) {
         setContentView(R.layout.activity_easy_level);
@@ -52,11 +62,18 @@ public class MainActivity extends AppCompatActivity {
         System.exit(0);
     }
 
-    public void SoundChange(View v){
-        ImageView button = findViewById(R.id.Sound);
+    public void SoundChange(View v) {
         isSoundOn = !isSoundOn;
+        if (isSoundOn) {
+            if (!mediaPlayer.isPlaying()) {
+                mediaPlayer.start(); // Start playing only if it's not already playing
+            }
+        } else {
+            mediaPlayer.pause(); // Pause the sound
+        }
         updateSoundButton();
     }
+
 
     private void updateSoundButton() {
         ImageView button = findViewById(R.id.Sound);
@@ -65,11 +82,40 @@ public class MainActivity extends AppCompatActivity {
         } else {
             button.setBackgroundResource(R.drawable.sound_button_off);
         }
+
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Pause the MediaPlayer when the activity is not visible
+        if (mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+        }
     }
 
+    @Override
     protected void onResume() {
         super.onResume();
+        // Resume the MediaPlayer if the sound is turned on
+        if (isSoundOn) {
+            mediaPlayer.start();
+        }
         updateSoundButton();
     }
+
+    public void playSound(View view) { // Call this method when you want to play the sound
+        if (mediaPlayer != null) {
+            mediaPlayer.start();
+        }
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+
 
 }
