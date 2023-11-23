@@ -84,10 +84,10 @@
 
     <ImageView
         android:id="@+id/imageView7"
+        android:onClick="onButton1Clicked"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginTop="44dp"
-        android:onClick="openEasyLevel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
@@ -95,6 +95,7 @@
 
     <ImageView
         android:id="@+id/imageView9"
+        android:onClick="onButton3Clicked"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginStart="20dp"
@@ -108,6 +109,7 @@
 
     <ImageView
         android:id="@+id/imageView8"
+        android:onClick="onButton2Clicked"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginEnd="20dp"

@@ -23,6 +23,17 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the onClickListener using the method
     }
+    public void onButton1Clicked(View v) {
+        setContentView(R.layout.activity_easy_level);
+    }
+    public void onButton2Clicked(View v) {
+        setContentView(R.layout.activity_medium_level);
+    }
+    public void onButton3Clicked(View v) {
+        setContentView(R.layout.activity_hard_level);
+    }
+
+
 
     public void openLevelSelection(View v){
 
