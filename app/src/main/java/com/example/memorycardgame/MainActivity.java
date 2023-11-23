@@ -50,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hard_level);
     }
 
-
-
     public void openLevelSelection(View v){
 
         Intent intent = new Intent(this, LevelSelection.class);
@@ -120,7 +118,5 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer = null;
         }
     }
-
-
-
+    
 }
