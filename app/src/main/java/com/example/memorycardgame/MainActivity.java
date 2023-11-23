@@ -18,7 +18,6 @@ import android.content.Context;
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
-    private boolean turnedOn = false;
     public static boolean isSoundOn = true;
     private MediaPlayer mediaPlayer;
 
