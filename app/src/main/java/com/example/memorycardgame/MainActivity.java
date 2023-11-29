@@ -12,6 +12,15 @@ import android.widget.Button;
 import android.media.MediaPlayer;
 import android.media.AudioManager;
 import android.content.Context;
+import android.os.CountDownTimer;
+import java.util.Locale;
+import android.os.Handler;
+import android.content.Intent;
+import android.widget.Toast;
+import android.os.Looper;
+
+
+
 
 
 
@@ -20,6 +29,10 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity {
     public static boolean isSoundOn = true;
     private MediaPlayer mediaPlayer;
+    private TextView timeTextView; // This is the TextView for the timer
+    private CountDownTimer gameTimer;
+    private final long startTime = 90 * 1000; // 1 minute 30 seconds in milliseconds
+    private final long interval = 1000; // 1 second interval
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +55,15 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onButton1Clicked(View v) {
         setContentView(R.layout.activity_easy_level);
+        startLevelTimer(R.id.gameTimer);
     }
     public void onButton2Clicked(View v) {
         setContentView(R.layout.activity_medium_level);
+        startLevelTimer(R.id.gameTimer);
     }
     public void onButton3Clicked(View v) {
         setContentView(R.layout.activity_hard_level);
+        startLevelTimer(R.id.gameTimer);
     }
 
     public void openLevelSelection(View v){
@@ -118,5 +134,43 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer = null;
         }
     }
-    
+    private void startLevelTimer(int textViewId) {
+        timeTextView = findViewById(textViewId); // Find the TextView in the current level's layout
+
+        // Cancel any existing timer to prevent multiple timers from running
+        if (gameTimer != null) {
+            gameTimer.cancel();
+        }
+
+        // Create a new timer
+        gameTimer = new CountDownTimer(startTime, interval) {
+            public void onTick(long millisUntilFinished) {
+                long minutes = millisUntilFinished / 60000;
+                long seconds = (millisUntilFinished % 60000) / 1000;
+                timeTextView.setText(String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds));
+            }
+
+            public void onFinish() {
+                timeTextView.setText("00:00");
+                showGameEnd();
+            }
+        }.start();
+    }
+
+    private void showGameEnd() {
+        // Show a toast message for immediate feedback
+        Toast.makeText(this, "Time's Up!", Toast.LENGTH_SHORT).show();
+
+        // Handler to add a delay before switching the view
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                setContentView(R.layout.activity_main);
+            }
+        }, 3000); // 3 second wait
+        
+    }
+
+
+
 }

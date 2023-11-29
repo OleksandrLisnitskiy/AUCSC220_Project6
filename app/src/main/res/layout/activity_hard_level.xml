@@ -294,7 +294,7 @@
         app:srcCompat="@drawable/score_on_the_board" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/gameTimer"
         android:layout_width="182dp"
         android:layout_height="50dp"
         android:fontFamily="@font/african"
