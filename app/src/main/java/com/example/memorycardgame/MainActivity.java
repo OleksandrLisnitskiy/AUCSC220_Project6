@@ -1,7 +1,6 @@
 package com.example.memorycardgame;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,20 +17,13 @@ import android.os.Handler;
 import android.content.Intent;
 import android.widget.Toast;
 import android.os.Looper;
-
-
-
-
-
-
 import java.io.IOException;
-
 public class MainActivity extends AppCompatActivity {
     public static boolean isSoundOn = true;
     private MediaPlayer mediaPlayer;
     private TextView timeTextView; // This is the TextView for the timer
     private CountDownTimer gameTimer;
-    private final long startTime = 90 * 1000; // 1 minute 30 seconds in milliseconds
+    private final long startTime = 120 * 1000; // 2 minutes in milliseconds // 1 minute 30 seconds in milliseconds
     private final long interval = 1000; // 1 second interval
 
     @Override
@@ -94,8 +86,6 @@ public class MainActivity extends AppCompatActivity {
         }
         updateSoundButton();
     }
-
-
     private void updateSoundButton() {
         ImageView button = findViewById(R.id.Sound);
         if (isSoundOn) {
@@ -120,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer.pause();
         }
     }
-
     public void playSound(View view) { // Call this method when you want to play the sound
         if (mediaPlayer != null) {
             mediaPlayer.start();
@@ -168,9 +157,7 @@ public class MainActivity extends AppCompatActivity {
                 setContentView(R.layout.activity_main);
             }
         }, 3000); // 3 second wait
-        
+
     }
-
-
 
 }
