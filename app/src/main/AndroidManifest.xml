@@ -16,6 +16,9 @@
             android:name=".HardLevel"
             android:exported="false" />
         <activity
+            android:name=".EasyLevel"
+            android:exported="false" />
+        <activity
             android:name=".MediumLevel"
             android:exported="false" />
         <activity

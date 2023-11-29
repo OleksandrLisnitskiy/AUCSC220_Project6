@@ -1,10 +1,10 @@
 package com.example.memorycardgame;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
@@ -20,6 +20,8 @@ import android.os.Looper;
 import java.io.IOException;
 public class MainActivity extends AppCompatActivity {
     public static boolean isSoundOn = true;
+
+    public static Game game = new Game();
     private MediaPlayer mediaPlayer;
     private TextView timeTextView; // This is the TextView for the timer
     private CountDownTimer gameTimer;
@@ -39,23 +41,52 @@ public class MainActivity extends AppCompatActivity {
         if (mediaPlayer == null) {
             mediaPlayer = MediaPlayer.create(this, R.raw.background_music);
             mediaPlayer.setVolume(1.0f, 1.0f);
+            mediaPlayer = MediaPlayer.create(this, R.raw.bg_sound);
             mediaPlayer.setLooping(true);
             if (isSoundOn) {
                 mediaPlayer.start();
             }
         }
+        
     }
     public void onButton1Clicked(View v) {
+
         setContentView(R.layout.activity_easy_level);
         startLevelTimer(R.id.gameTimer);
+        game.setDifficulty(1);
+        game.start();
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < 2; j++){
+                System.out.println(game.cardBoard[i][j].getImagePath());
+            }
+        }
     }
     public void onButton2Clicked(View v) {
+
         setContentView(R.layout.activity_medium_level);
         startLevelTimer(R.id.gameTimer);
+        game.setDifficulty(2);
+        game.start();
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < 4; j++){
+                System.out.println(game.cardBoard[i][j].getImagePath());
+            }
+        }
     }
+
+
     public void onButton3Clicked(View v) {
+
         setContentView(R.layout.activity_hard_level);
         startLevelTimer(R.id.gameTimer);
+
+        game.setDifficulty(3);
+        game.start();
+        for(int i = 0; i < 6; i++){
+            for(int j = 0; j < 4; j++){
+                System.out.println(game.cardBoard[i][j].getImagePath());
+            }
+        }
     }
 
     public void openLevelSelection(View v){

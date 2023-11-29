@@ -20,12 +20,9 @@ public class LevelSelection extends MainActivity {
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+
     }
 
-    public void openEasyLevel(View v){
 
-        Intent intent = new Intent(this, EasyLevel.class);
-        startActivity(intent);
-    }
 
 }
