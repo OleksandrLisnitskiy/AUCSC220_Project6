@@ -2,4 +2,6 @@
     <string name="app_name">Memory Card Game</string>
     <string name="enter_the_number_to_factor">Enter the number to factor?</string>
     <string name="button">Button</string>
+    <string name="title_activity_easy_level2">EasyLevel2</string>
+    <string name="title_activity_main2">MainActivity2</string>
 </resources>

@@ -4,20 +4,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.view.View;
+
 import android.widget.ImageView;
+
 import android.widget.TextView;
-import android.widget.Button;
+
 import android.media.MediaPlayer;
 import android.media.AudioManager;
 import android.content.Context;
 import android.os.CountDownTimer;
 import java.util.Locale;
 import android.os.Handler;
-import android.content.Intent;
+
 import android.widget.Toast;
 import android.os.Looper;
-import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
     public static boolean isSoundOn = true;
 
@@ -47,12 +50,14 @@ public class MainActivity extends AppCompatActivity {
                 mediaPlayer.start();
             }
         }
-        
     }
+
+
     public void onButton1Clicked(View v) {
 
-        setContentView(R.layout.activity_easy_level);
-        startLevelTimer(R.id.gameTimer);
+        Intent intent = new Intent(this, EasyLevel.class);
+        startActivity(intent);
+//        startLevelTimer(R.id.gameTimer);
         game.setDifficulty(1);
         game.start();
         for(int i = 0; i < 4; i++){
@@ -63,8 +68,9 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onButton2Clicked(View v) {
 
-        setContentView(R.layout.activity_medium_level);
-        startLevelTimer(R.id.gameTimer);
+        Intent intent = new Intent(this, MediumLevel.class);
+        startActivity(intent);
+//        startLevelTimer(R.id.gameTimer);
         game.setDifficulty(2);
         game.start();
         for(int i = 0; i < 4; i++){
@@ -77,8 +83,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void onButton3Clicked(View v) {
 
-        setContentView(R.layout.activity_hard_level);
-        startLevelTimer(R.id.gameTimer);
+        Intent intent = new Intent(this, HardLevel.class);
+        startActivity(intent);
+//        startLevelTimer(R.id.gameTimer);
 
         game.setDifficulty(3);
         game.start();
@@ -167,11 +174,11 @@ public class MainActivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 long minutes = millisUntilFinished / 60000;
                 long seconds = (millisUntilFinished % 60000) / 1000;
-                timeTextView.setText(String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds));
+                timeTextView.setText("Time: " + String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds));
             }
 
             public void onFinish() {
-                timeTextView.setText("00:00");
+                timeTextView.setText("Text: 00:00");
                 showGameEnd();
             }
         }.start();

@@ -13,10 +13,10 @@
         android:theme="@style/Theme.MemoryCardGame"
         tools:targetApi="31">
         <activity
-            android:name=".HardLevel"
+            android:name=".EasyLevel"
             android:exported="false" />
         <activity
-            android:name=".EasyLevel"
+            android:name=".HardLevel"
             android:exported="false" />
         <activity
             android:name=".MediumLevel"
