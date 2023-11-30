@@ -14,9 +14,5 @@ public class TopScore extends MainActivity {
         setContentView(R.layout.activity_top_score);
     }
 
-    public void backButton(View v){
 
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
 }

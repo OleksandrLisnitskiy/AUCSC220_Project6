@@ -72,7 +72,6 @@
         android:layout_height="79dp"
         android:background="@drawable/button_start_menu"
         android:fontFamily="@font/african"
-        android:onClick="Quit"
         android:text="Quit"
         android:textColor="#c4a8ff"
         android:textSize="30pt"

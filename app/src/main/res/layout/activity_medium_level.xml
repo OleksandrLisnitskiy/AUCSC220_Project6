@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
+    android:id="@+id/linearLayoutMedium"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
@@ -22,7 +22,7 @@
         app:srcCompat="@drawable/sound_button_on" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/pauseMedium"
         android:layout_width="65dp"
         android:layout_height="65dp"
         app:layout_constraintBottom_toBottomOf="parent"

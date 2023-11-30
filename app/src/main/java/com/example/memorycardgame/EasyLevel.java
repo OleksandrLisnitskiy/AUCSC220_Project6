@@ -5,6 +5,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 
@@ -16,7 +17,7 @@ public class EasyLevel extends MainActivity {
         setContentView(R.layout.activity_easy_level);
         layout = findViewById(R.id.linearLayoutEasy);
 
-        ImageView pauseButton = findViewById(R.id.pause);
+        ImageView pauseButton = findViewById(R.id.pauseEasy);
 
         // Set a click listener for the button
         pauseButton.setOnClickListener(new View.OnClickListener() {
@@ -24,26 +25,11 @@ public class EasyLevel extends MainActivity {
             public void onClick(View view) {
                 // The code to be executed when the button is clicked
                 // For example, you can open a new activity, show a message, etc.
-                CreatePopUpWindow();
+                CreatePopUpWindow(layout);
             }
         });
 
 
     }
 
-    public void CreatePopUpWindow() {
-        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popUpView = inflater.inflate(R.layout.pause_window, null);
-        int width = ViewGroup.LayoutParams.MATCH_PARENT;
-        int height = ViewGroup.LayoutParams.MATCH_PARENT;
-        boolean focusable = false;
-        PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
-        layout.post(new Runnable(){
-            @Override
-            public void run(){
-                popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0);
-            }
-        });
-
-    }
 }
