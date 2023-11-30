@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
             gameTimer.cancel();
         }
 
-        gameTimer = new CountDownTimer(timeLeftInMillis, interval) {
+        gameTimer = new CountDownTimer(timeLeftInMillis, 1000) {
             public void onTick(long millisUntilFinished) {
                 timeLeftInMillis = millisUntilFinished;
                 updateTimerText(timeLeftInMillis);
@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
                 timeTextView.setText("Time: 00:00");
                 showGameEnd();
             }
-        }.start();
+        };gameTimer.start();
     }
 
     private void updateTimerText(long timeMillis) {
