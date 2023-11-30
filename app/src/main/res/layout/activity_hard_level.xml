@@ -262,7 +262,7 @@
         app:srcCompat="@drawable/card_for_hard_level" />
 
     <ImageView
-        android:id="@+id/pauseHard"
+        android:id="@+id/pauseButton"
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:onClick="PopUp"

@@ -16,7 +16,7 @@
 
 
         <ImageView
-            android:id="@+id/pauseEasy"
+            android:id="@+id/pauseButton"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:importantForAccessibility="no"

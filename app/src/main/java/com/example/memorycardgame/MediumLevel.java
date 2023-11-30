@@ -17,20 +17,19 @@ public class MediumLevel extends MainActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medium_level);
-        ImageView pauseButton = findViewById(R.id.pauseMedium);
-
         layout = findViewById(R.id.linearLayoutMedium);
-
-
-        // Set a click listener for the button
+        startLevelTimer();
+        ImageView pauseButton = findViewById(R.id.pauseButton);
         pauseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // The code to be executed when the button is clicked
-                // For example, you can open a new activity, show a message, etc.
+                if (gameTimer != null) {
+                    gameTimer.cancel();
+                    gameTimer = null;
+                }
+                isGamePaused = true;
                 CreatePopUpWindow(layout);
             }
         });
-
     }
 }

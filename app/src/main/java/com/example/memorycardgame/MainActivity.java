@@ -32,9 +32,12 @@ public class MainActivity extends AppCompatActivity {
     public static Game game = new Game();
     private MediaPlayer mediaPlayer;
     private TextView timeTextView; // This is the TextView for the timer
-    private CountDownTimer gameTimer;
-    private final long startTime = 120 * 1000; // 2 minutes in milliseconds // 1 minute 30 seconds in milliseconds
+    protected CountDownTimer gameTimer;
+    private final long startTime = 120 * 1000; // 2 minutes in milliseconds
     private final long interval = 1000; // 1 second interval
+    protected boolean isGamePaused = false;
+    private long timeLeftInMillis = startTime;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             if (isSoundOn) {
                 mediaPlayer.start();
             }
+
         }
 
 
@@ -73,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, EasyLevel.class);
         startActivity(intent);
-//        startLevelTimer(R.id.gameTimer);
         game.setDifficulty(1);
         game.start();
         for(int i = 0; i < 4; i++){
@@ -86,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, MediumLevel.class);
         startActivity(intent);
-//        startLevelTimer(R.id.gameTimer);
         game.setDifficulty(2);
         game.start();
         for(int i = 0; i < 4; i++){
@@ -101,8 +103,6 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, HardLevel.class);
         startActivity(intent);
-//        startLevelTimer(R.id.gameTimer);
-
         game.setDifficulty(3);
         game.start();
         for(int i = 0; i < 6; i++){
@@ -149,7 +149,12 @@ public class MainActivity extends AppCompatActivity {
         if (isSoundOn && mediaPlayer != null && !mediaPlayer.isPlaying()) {
             mediaPlayer.start();
         }
+        if (isGamePaused) {
+            startLevelTimer();
+            isGamePaused = false;
+        }
     }
+
 
     @Override
     protected void onPause() {
@@ -157,12 +162,12 @@ public class MainActivity extends AppCompatActivity {
         if (mediaPlayer != null && mediaPlayer.isPlaying()) {
             mediaPlayer.pause();
         }
-    }
-    public void playSound(View view) { // Call this method when you want to play the sound
-        if (mediaPlayer != null) {
-            mediaPlayer.start();
+        if (gameTimer != null) {
+            gameTimer.cancel();
+            isGamePaused = true;
         }
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -173,28 +178,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void startLevelTimer(int textViewId) {
-        timeTextView = findViewById(textViewId); // Find the TextView in the current level's layout
+    public void startLevelTimer() {
+        timeTextView = findViewById(R.id.gameTimer);
 
-        // Cancel any existing timer to prevent multiple timers from running
         if (gameTimer != null) {
             gameTimer.cancel();
         }
 
-        // Create a new timer
-        gameTimer = new CountDownTimer(startTime, interval) {
+        gameTimer = new CountDownTimer(timeLeftInMillis, interval) {
             public void onTick(long millisUntilFinished) {
-                long minutes = millisUntilFinished / 60000;
-                long seconds = (millisUntilFinished % 60000) / 1000;
-                timeTextView.setText("Time: " + String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds));
+                timeLeftInMillis = millisUntilFinished;
+                updateTimerText(timeLeftInMillis);
             }
 
             public void onFinish() {
-                timeTextView.setText("Text: 00:00");
+                timeTextView.setText("Time: 00:00");
                 showGameEnd();
             }
         }.start();
     }
+
+    private void updateTimerText(long timeMillis) {
+        int minutes = (int) (timeMillis / 1000) / 60;
+        int seconds = (int) (timeMillis / 1000) % 60;
+        String timeFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+        timeTextView.setText("Time: " + timeFormatted);
+    }
+
 
     private void showGameEnd() {
         // Show a toast message for immediate feedback

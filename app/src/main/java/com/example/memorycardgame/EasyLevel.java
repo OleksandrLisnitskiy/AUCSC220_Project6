@@ -16,20 +16,21 @@ public class EasyLevel extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_easy_level);
         layout = findViewById(R.id.linearLayoutEasy);
-
-        ImageView pauseButton = findViewById(R.id.pauseEasy);
-
-        // Set a click listener for the button
+        startLevelTimer();
+        ImageView pauseButton = findViewById(R.id.pauseButton);
         pauseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // The code to be executed when the button is clicked
-                // For example, you can open a new activity, show a message, etc.
+                if (gameTimer != null) {
+                    gameTimer.cancel();
+                    gameTimer = null;
+                }
+                isGamePaused = true;
+
                 CreatePopUpWindow(layout);
             }
         });
-
-
     }
+    
 
 }
