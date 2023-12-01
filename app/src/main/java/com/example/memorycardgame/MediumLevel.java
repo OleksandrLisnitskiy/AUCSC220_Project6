@@ -13,8 +13,6 @@ import android.widget.PopupWindow;
 
 public class MediumLevel extends MainActivity {
     View layout;
-    PopupWindow popupWindow;
-    Button resumButton;
 
     @Override
 
@@ -22,7 +20,7 @@ public class MediumLevel extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medium_level);
         layout = findViewById(R.id.linearLayoutMedium);
-        startLevelTimer();
+        startLevelTimer(false);
         ImageView pauseButton = findViewById(R.id.pauseButton);
 
         pauseButton.setOnClickListener(new View.OnClickListener() {

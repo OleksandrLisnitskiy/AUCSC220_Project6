@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
     protected CountDownTimer gameTimer;
     private final long interval = 1000; // 1 second interval
     protected boolean isGamePaused = false;
-    private long timeLeftInMillis;
+    public long startTime;
+    private long timeLeftInMillis = -1;
 
 
     @Override
@@ -79,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
         game.setDifficulty(1);
         game.start();
 
+
+
         for(int i = 0; i < 4; i++){
             for(int j = 0; j < 2; j++){
                 System.out.println(game.cardBoard[i][j].getImagePath());
@@ -91,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         game.setDifficulty(2);
         game.start();
+
+
         for(int i = 0; i < 4; i++){
             for(int j = 0; j < 4; j++){
                 System.out.println(game.cardBoard[i][j].getImagePath());
@@ -105,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         game.setDifficulty(3);
         game.start();
+
         for(int i = 0; i < 6; i++){
             for(int j = 0; j < 4; j++){
                 System.out.println(game.cardBoard[i][j].getImagePath());
@@ -150,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer.start();
         }
         if (isGamePaused) {
-            startLevelTimer();
+            startLevelTimer(false);
             isGamePaused = false;
         }
     }
@@ -178,23 +184,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void startLevelTimer() {
+    public void startLevelTimer(boolean restart) {
         timeTextView = findViewById(R.id.gameTimer);
-        switch (game.getDifficulty()) {
-            case 1:
-                timeLeftInMillis = game.easyLevelTime;
-                break;
-            case 2:
-                timeLeftInMillis = game.mediumLevelTime;
-                break;
-            case 3:
-                timeLeftInMillis = game.hardLevelTime;
-                break;
-        }
+
         if (gameTimer != null) {
             gameTimer.cancel();
         }
-
+        if(restart ||timeLeftInMillis == -1){
+            switch (game.getDifficulty()){
+                case 1:
+                    timeLeftInMillis = game.easyLevelTime;
+                    break;
+                case 2:
+                    timeLeftInMillis = game.mediumLevelTime;
+                    break;
+                case 3:
+                    timeLeftInMillis = game.hardLevelTime;
+                    break;
+            }
+        }
         gameTimer = new CountDownTimer(timeLeftInMillis, interval) {
             public void onTick(long millisUntilFinished) {
                 timeLeftInMillis = millisUntilFinished;
@@ -259,7 +267,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 popupWindow.dismiss();
-                startLevelTimer();
+                startLevelTimer(false);
 
             }
         });
@@ -267,8 +275,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 popupWindow.dismiss();
-                timeLeftInMillis =  120 * 1000;
-                startLevelTimer();
+                timeLeftInMillis = startTime;
+                startLevelTimer(true);
                 game.restart();
 
 

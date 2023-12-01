@@ -24,7 +24,7 @@ public class HardLevel extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hard_level);
         layout = findViewById(R.id.linearLayoutHard);
-        startLevelTimer();
+        startLevelTimer(false);
         ImageView pauseButton = findViewById(R.id.pauseButton);
 
         pauseButton.setOnClickListener(new View.OnClickListener() {

@@ -20,7 +20,8 @@ public class EasyLevel extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_easy_level);
         layout = findViewById(R.id.linearLayoutEasy);
-        startLevelTimer();
+
+        startLevelTimer(false);
         ImageView pauseButton = findViewById(R.id.pauseButton);
 
         pauseButton.setOnClickListener(new View.OnClickListener() {
