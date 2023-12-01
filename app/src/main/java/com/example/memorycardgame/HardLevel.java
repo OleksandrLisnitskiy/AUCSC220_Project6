@@ -38,20 +38,7 @@ public class HardLevel extends MainActivity {
         });
     }
 
-    public void CreatePopUpWindow(View Layout) {
-        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popUpView = inflater.inflate(R.layout.pause_window, null);
-        popupWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, false);
-        resumButton = (Button) popUpView.findViewById(R.id.resumeButton);
-        resumButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                popupWindow.dismiss();
-                startLevelTimer();
-            }
-        });
-        popupWindow.showAtLocation(layout, Gravity.CENTER, 0, 0);
-    }
+
 
 }
 

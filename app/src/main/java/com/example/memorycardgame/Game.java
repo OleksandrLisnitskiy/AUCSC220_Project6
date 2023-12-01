@@ -9,9 +9,9 @@ public class Game {
     Score score = new Score();
     private int difficulty;
     public LocalDateTime game_time;
-    private Duration easyLevelTime;
-    private Duration mediumLevelTime;
-    private Duration hardLevelTime;
+    public long easyLevelTime = 90 * 1000;
+    public long mediumLevelTime = 150 * 1000;
+    public long hardLevelTime = 210 * 1000;
     public Card[][] cardBoard;
 
     public void start(){

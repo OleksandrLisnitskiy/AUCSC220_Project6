@@ -33,10 +33,9 @@ public class MainActivity extends AppCompatActivity {
     private MediaPlayer mediaPlayer;
     private TextView timeTextView; // This is the TextView for the timer
     protected CountDownTimer gameTimer;
-    private final long startTime = 120 * 1000; // 2 minutes in milliseconds
     private final long interval = 1000; // 1 second interval
     protected boolean isGamePaused = false;
-    private long timeLeftInMillis = startTime;
+    private long timeLeftInMillis;
 
 
     @Override
@@ -79,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         game.setDifficulty(1);
         game.start();
+
         for(int i = 0; i < 4; i++){
             for(int j = 0; j < 2; j++){
                 System.out.println(game.cardBoard[i][j].getImagePath());
@@ -180,12 +180,22 @@ public class MainActivity extends AppCompatActivity {
 
     public void startLevelTimer() {
         timeTextView = findViewById(R.id.gameTimer);
-
+        switch (game.getDifficulty()) {
+            case 1:
+                timeLeftInMillis = game.easyLevelTime;
+                break;
+            case 2:
+                timeLeftInMillis = game.mediumLevelTime;
+                break;
+            case 3:
+                timeLeftInMillis = game.hardLevelTime;
+                break;
+        }
         if (gameTimer != null) {
             gameTimer.cancel();
         }
 
-        gameTimer = new CountDownTimer(timeLeftInMillis, 1000) {
+        gameTimer = new CountDownTimer(timeLeftInMillis, interval) {
             public void onTick(long millisUntilFinished) {
                 timeLeftInMillis = millisUntilFinished;
                 updateTimerText(timeLeftInMillis);
@@ -241,15 +251,15 @@ public class MainActivity extends AppCompatActivity {
         });
         Button resumButton, quitButton, restartButton;
 
-        resumButton = (Button) popUpView.findViewById(R.id.resumeButton);
-        quitButton = (Button) popUpView.findViewById(R.id.stopGameButton);
-        restartButton = (Button) popUpView.findViewById(R.id.restartButton);
+        resumButton =  popUpView.findViewById(R.id.resumeButton);
+        quitButton =  popUpView.findViewById(R.id.stopGameButton);
+        restartButton =  popUpView.findViewById(R.id.restartButton);
 
         resumButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-
                 popupWindow.dismiss();
+                startLevelTimer();
 
             }
         });
@@ -257,20 +267,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 popupWindow.dismiss();
-                //        startLevelTimer(R.id.gameTimer);
+                timeLeftInMillis =  120 * 1000;
+                startLevelTimer();
                 game.restart();
-                for(int i = 0; i < 4; i++){
-                    for(int j = 0; j < 2; j++){
-                        System.out.println(game.cardBoard[i][j].getImagePath());
-                    }
-                }
+
 
             }
         });
         quitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
+
                 game.quit();
+                gameTimer.cancel();
                 popupWindow.dismiss();
                 backButton(view);
             }
