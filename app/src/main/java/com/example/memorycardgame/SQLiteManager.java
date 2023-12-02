@@ -74,12 +74,9 @@ public class SQLiteManager extends SQLiteOpenHelper {
         {
             if (result.getCount() != 0)
             {
-                System.out.println(result.getColumnCount());
                     res.set(0, result.getString(2));
                     res.set(2, result.getInt(4));
                     res.set(1, LocalDateTime.parse(result.getString(3)));
-
-
                 }
             }
         return res;
