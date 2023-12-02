@@ -1,55 +1,34 @@
 package com.example.memorycardgame;
 
+import android.content.Context;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class User {
 
-    private String easyLevelTopScore;
-    private Duration easyLevelTopTime;
-    private String mediumLevelTopScore;
-    private Duration mediumLevelTopTime;
-    private String hardLevelTopScore;
-    private Duration hardLevelTopTime;
+    private String TopScore;
+    private long TopTime;
+    private Context context;
 
-    public void setEasyLevelTopScore(String easyLevelTopScore, Duration easyLevelTopTime) {
-        this.easyLevelTopScore = easyLevelTopScore;
-        this.easyLevelTopTime = easyLevelTopTime;
+    public SQLiteManager sqLiteManager = null;
+
+    public void setNewTopScore(String TopScore, long TopTime, int difficulty) {
+        this.TopScore = TopScore;
+        this.TopTime = TopTime;
+
+        sqLiteManager.updateTopScore(this.TopScore, this.TopTime, difficulty );
     }
 
-    public void setMediumLevelTopScore(String mediumLevelTopScore, Duration mediumLevelTopTime) {
-        this.mediumLevelTopScore = mediumLevelTopScore;
-        this.mediumLevelTopTime = mediumLevelTopTime;
-    }
-
-    public void setHardLevelTopScore(String hardLevelTopScore, Duration hardLevelTopTime) {
-        this.hardLevelTopScore = hardLevelTopScore;
-        this.hardLevelTopTime = hardLevelTopTime;
-    }
-
-    public Duration getEasyLevelTopTime() {
-        return easyLevelTopTime;
-    }
-
-    public Duration getHardLevelTopTime() {
-        return hardLevelTopTime;
-    }
-
-    public Duration getMediumLevelTopTime() {
-        return mediumLevelTopTime;
-    }
-
-    public String getEasyLevelTopScore() {
-        return easyLevelTopScore;
-    }
-
-    public String getHardLevelTopScore() {
-        return hardLevelTopScore;
-    }
-
-    public String getMediumLevelTopScore() {
-        return mediumLevelTopScore;
+    public List<Object> getTopScore(int difficulty) {
+        List<Object> res = sqLiteManager.getTopScores(difficulty);;
+        return res;
     }
 
 }

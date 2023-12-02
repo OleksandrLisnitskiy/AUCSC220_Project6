@@ -14,7 +14,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Objects;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class SQLiteManager extends SQLiteOpenHelper {
@@ -45,13 +49,16 @@ public class SQLiteManager extends SQLiteOpenHelper {
         StringBuilder sql;
         sql = new StringBuilder().append("CREATE TABLE ").append(TABLE_NAME).append("(")
                 .append(COUNTER).append(" INTEGER PRIMARY KEY AUTOINCREMENT, ").append(DATE_FIELD)
-                .append(" DATETIME DEFAULT ").append(LocalDateTime.now()).append(", ").append(SCORE_FIELD).append(" INT)").append(DURATION_FIELD)
+                .append(" DATETIME DEFAULT CURRENT_TIMESTAMP").append(", ").append(SCORE_FIELD).append(" INT,").append(DURATION_FIELD)
                 .append(" INT)");
 
         db.execSQL(sql.toString());
-        String sql2 = "INSERT INTO " + TABLE_NAME + "(" + SCORE_FIELD + ", " +
-                DURATION_FIELD + ") VALUES (" + null + ", " + null + ");" ;
-        db.execSQL(sql2);
+        for (int i = 0; i < 3; i++) {
+            String sql2 = "INSERT INTO " + TABLE_NAME + "(" + SCORE_FIELD + ", " +
+                    DURATION_FIELD + ") VALUES (" + 0 + ", " + 0 + ");" ;
+            db.execSQL(sql2);
+        }
+
 
     }
 
@@ -60,39 +67,31 @@ public class SQLiteManager extends SQLiteOpenHelper {
 
     }
 
-    public void  setNewTopScore(String topScore, Duration topTime, int difficulty) {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues contentValues = new ContentValues();
-
-        contentValues.put(DURATION_FIELD, topTime.toMillis());
-        contentValues.put(SCORE_FIELD, topScore);
-
-        db.insert(TABLE_NAME, null, contentValues);
-    }
-
-    public void getTopScores(){
+    public List<Object> getTopScores(int difficulty){
         SQLiteDatabase db = this.getReadableDatabase();
-
-        try (Cursor result = db.rawQuery("SELECT * FROM  " + TABLE_NAME , null))
+        List<Object> res = Arrays.asList(0, 0, LocalDateTime.now());
+        try (Cursor result = db.rawQuery("SELECT * FROM  " + TABLE_NAME + " WHERE " + COUNTER + " = " + difficulty, null))
         {
             if (result.getCount() != 0)
             {
-                while(result.moveToNext()){
-                    int score = result.getInt(1);
-                    LocalDateTime date = LocalDateTime.parse(result.getString(2));
-                    Duration duration = Duration.ofMillis(result.getInt(3));
+                System.out.println(result.getColumnCount());
+                    res.set(0, result.getString(2));
+                    res.set(2, result.getInt(4));
+                    res.set(1, LocalDateTime.parse(result.getString(3)));
+
+
                 }
             }
+        return res;
         }
-    }
 
-    public void updateTopScore(String topScore, Duration topTime, int difficulty){
+
+    public void updateTopScore(String topScore, long topTime, int difficulty){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(DURATION_FIELD, topTime.toMillis());
+        contentValues.put(DURATION_FIELD, topTime);
         contentValues.put(SCORE_FIELD, topScore);
         contentValues.put(DATE_FIELD, String.valueOf(LocalDateTime.now()));
 

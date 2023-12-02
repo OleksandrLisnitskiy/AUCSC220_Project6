@@ -1,8 +1,10 @@
 package com.example.memorycardgame;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import android.view.Gravity;
@@ -26,6 +28,7 @@ import android.os.Handler;
 import android.widget.Toast;
 import android.os.Looper;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class MainActivity extends AppCompatActivity {
     public static boolean isSoundOn = true;
 
@@ -77,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, EasyLevel.class);
         startActivity(intent);
-        game.setDifficulty(1);
+        game.setDifficulty(1, this);
         game.start();
 
 
@@ -92,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, MediumLevel.class);
         startActivity(intent);
-        game.setDifficulty(2);
+        game.setDifficulty(2, this);
         game.start();
 
 
@@ -108,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, HardLevel.class);
         startActivity(intent);
-        game.setDifficulty(3);
+        game.setDifficulty(3, this);
         game.start();
 
         for(int i = 0; i < 6; i++){
@@ -286,7 +289,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
 
-                game.quit();
+//                game.quit(0);
                 gameTimer.cancel();
                 popupWindow.dismiss();
                 backButton(view);

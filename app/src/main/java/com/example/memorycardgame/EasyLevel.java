@@ -1,5 +1,6 @@
 package com.example.memorycardgame;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -9,10 +10,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 
+import androidx.annotation.RequiresApi;
+
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class EasyLevel extends MainActivity {
     View layout;
-    PopupWindow popupWindow;
-    Button resumButton;
+
 
     @Override
 

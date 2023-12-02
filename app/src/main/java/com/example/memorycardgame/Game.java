@@ -1,15 +1,21 @@
 package com.example.memorycardgame;
 
+import android.app.UiAutomation;
+import android.content.Context;
 import android.os.Build;
 
-import java.time.Duration;
+import androidx.annotation.RequiresApi;
+
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class Game {
     Score score = new Score();
     private int difficulty;
+    User user = new User();
     public LocalDateTime game_time;
     public long easyLevelTime = 90 * 1000;
     public long mediumLevelTime = 150 * 1000;
@@ -37,8 +43,10 @@ public class Game {
 
     }
 
-    public void setDifficulty(int difficulty) {
+    public void setDifficulty(int difficulty, Context context) {
         this.difficulty = difficulty;
+        user.sqLiteManager = SQLiteManager.instanceOfDatabase(context);
+
     }
 
     public int getDifficulty() {
@@ -70,8 +78,12 @@ public class Game {
             }
         }
     }
-    public void quit(){
+    public void quit(long timeToComplete){
 
+        List<Object> lastTop = user.getTopScore(difficulty);
+        if ((int) lastTop.get(0) < score.getScore() && (long) lastTop.get(1) > timeToComplete ){
+            user.setNewTopScore(String.valueOf(score.getScore()), timeToComplete, difficulty);
+        }
     }
     public void restart(){
         this.start();
