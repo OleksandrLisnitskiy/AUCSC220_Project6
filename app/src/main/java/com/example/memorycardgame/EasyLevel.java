@@ -4,8 +4,13 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 
 import androidx.annotation.RequiresApi;
 
@@ -55,6 +60,30 @@ public class EasyLevel extends MainActivity {
         }
 
     }
+
+    private List<List<Integer>> getImageViewIds() {
+        List<List<Integer>> imageViewIds = new ArrayList<>();
+        Resources resources = getResources();
+        String packageName = getPackageName();
+
+        for (int i = 0; i < 4; i++) {
+            List<Integer> InnerArray = new ArrayList<>();
+            for (int j = 0; j < 2; j++) {
+                String imageViewIdName = "imageView" + String.valueOf(i) + j;
+                System.out.println(imageViewIdName);
+                int imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
+
+                    InnerArray.add(imageViewId);
+
+            }
+            imageViewIds.add(InnerArray);
+        }
+
+        return imageViewIds;
+    }
+
+
+
 
 
 }
