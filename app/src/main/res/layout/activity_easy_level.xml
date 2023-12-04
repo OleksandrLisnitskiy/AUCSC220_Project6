@@ -19,15 +19,14 @@
             android:id="@+id/pauseButton"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:importantForAccessibility="no"
             android:background="@drawable/pause_button"
+            android:importantForAccessibility="no"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.98"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.994"
-            />
+            app:layout_constraintVertical_bias="0.994" />
 
         <ImageView
             android:id="@+id/Sound"
@@ -51,7 +50,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.432"
-            app:srcCompat="@drawable/card_for_easy_level" />
+            app:srcCompat="@drawable/card_for_easy_level"
+            android:clickable="true"
+            android:onClick="onCardClick4"/>
 
         <ImageView
             android:id="@+id/imageView17"
@@ -63,7 +64,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.649"
-            app:srcCompat="@drawable/card_for_easy_level" />
+            app:srcCompat="@drawable/card_for_easy_level"
+            android:clickable="true"
+            android:onClick="onCardClick6"/>
 
         <ImageView
             android:id="@+id/imageView18"
@@ -75,7 +78,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.864"
-            app:srcCompat="@drawable/card_for_easy_level" />
+            app:srcCompat="@drawable/card_for_easy_level"
+            android:clickable="true"
+            android:onClick="onCardClick7"/>
 
         <ImageView
             android:id="@+id/imageView13"
@@ -87,7 +92,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.215"
-            app:srcCompat="@drawable/card_for_easy_level" />
+            app:srcCompat="@drawable/card_for_easy_level"
+            android:clickable="true"
+            android:onClick="onCardClick2"/>
 
         <ImageView
             android:id="@+id/imageView14"
@@ -99,7 +106,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.432"
-            app:srcCompat="@drawable/card_for_easy_level" />
+            app:srcCompat="@drawable/card_for_easy_level"
+            android:clickable="true"
+            android:onClick="onCardClick3"/>
 
         <ImageView
             android:id="@+id/imageView12"
@@ -111,7 +120,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.215"
-            app:srcCompat="@drawable/card_for_easy_level" />
+            app:srcCompat="@drawable/card_for_easy_level"
+            android:clickable="true"
+            android:onClick="onCardClick"/>
 
         <ImageView
             android:id="@+id/imageView16"
@@ -123,7 +134,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.649"
-            app:srcCompat="@drawable/card_for_easy_level" />
+            app:srcCompat="@drawable/card_for_easy_level"
+            android:clickable="true"
+            android:onClick="onCardClick5"/>
 
         <ImageView
             android:id="@+id/imageView19"
@@ -135,7 +148,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.866"
-            app:srcCompat="@drawable/card_for_easy_level" />
+            app:srcCompat="@drawable/card_for_easy_level"
+            android:clickable="true"
+            android:onClick="onCardClick8"/>
 
         <ImageView
             android:id="@+id/imageView36"
