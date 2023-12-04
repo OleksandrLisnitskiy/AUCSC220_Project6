@@ -271,7 +271,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view){
                 popupWindow.dismiss();
                 startLevelTimer(false);
-
             }
         });
         restartButton.setOnClickListener(new View.OnClickListener() {
@@ -289,7 +288,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
 
-//                game.quit(0);
+                game.quit(0);
                 gameTimer.cancel();
                 popupWindow.dismiss();
                 backButton(view);

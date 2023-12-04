@@ -84,6 +84,7 @@ public class Game {
         if ((int) lastTop.get(0) < score.getScore() && (long) lastTop.get(1) > timeToComplete ){
             user.setNewTopScore(String.valueOf(score.getScore()), timeToComplete, difficulty);
         }
+
     }
     public void restart(){
         this.start();

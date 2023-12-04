@@ -6,13 +6,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
+import java.time.format.DateTimeFormatter;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.Duration;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,6 +24,8 @@ import java.util.Objects;
 public class SQLiteManager extends SQLiteOpenHelper {
     private static SQLiteManager sqLiteManager;
     private static final String DATABASE_NAME = "ScoreDB";
+    public final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "ScoreDB";
     private static final String COUNTER = "ScoreDB";
@@ -50,14 +52,9 @@ public class SQLiteManager extends SQLiteOpenHelper {
         sql = new StringBuilder().append("CREATE TABLE ").append(TABLE_NAME).append("(")
                 .append(COUNTER).append(" INTEGER PRIMARY KEY AUTOINCREMENT, ").append(DATE_FIELD)
                 .append(" DATETIME DEFAULT CURRENT_TIMESTAMP").append(", ").append(SCORE_FIELD).append(" INT,").append(DURATION_FIELD)
-                .append(" INT)");
-
+                .append(" INT);");
         db.execSQL(sql.toString());
-        for (int i = 0; i < 3; i++) {
-            String sql2 = "INSERT INTO " + TABLE_NAME + "(" + SCORE_FIELD + ", " +
-                    DURATION_FIELD + ") VALUES (" + 0 + ", " + 0 + ");" ;
-            db.execSQL(sql2);
-        }
+
 
 
     }
@@ -74,9 +71,10 @@ public class SQLiteManager extends SQLiteOpenHelper {
         {
             if (result.getCount() != 0)
             {
-                    res.set(0, result.getString(2));
-                    res.set(2, result.getInt(4));
-                    res.set(1, LocalDateTime.parse(result.getString(3)));
+                    result.moveToFirst();
+                    res.set(0, result.getInt(2));
+                    res.set(1, result.getInt(3));
+                    res.set(2, LocalDateTime.parse(result.getString(1), formatter));
                 }
             }
         return res;
@@ -90,8 +88,11 @@ public class SQLiteManager extends SQLiteOpenHelper {
 
         contentValues.put(DURATION_FIELD, topTime);
         contentValues.put(SCORE_FIELD, topScore);
-        contentValues.put(DATE_FIELD, String.valueOf(LocalDateTime.now()));
+        contentValues.put(DATE_FIELD, String.valueOf(LocalDateTime.now().format(formatter)));
 
-        db.update(TABLE_NAME, contentValues, "pk =? ", new String[]{String.valueOf(difficulty-1)});
+        db.update(TABLE_NAME, contentValues, COUNTER + "=" + difficulty, null);
     }
+
 }
+
+
