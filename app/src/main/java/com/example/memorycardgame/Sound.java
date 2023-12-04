@@ -15,7 +15,7 @@ public class Sound extends MainActivity {
 
     public static void init(Context context) {
         if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(context, R.raw.background_music);
+            mediaPlayer = MediaPlayer.create(context, R.raw.bg_sound);
             mediaPlayer.setLooping(true); // Set looping
             mediaPlayer.setVolume(1.0f, 1.0f);
 
