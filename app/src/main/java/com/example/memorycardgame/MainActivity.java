@@ -49,6 +49,24 @@ public class MainActivity extends AppCompatActivity {
         updateSoundButton();
         // Initialize the sound
         Sound.init(this);
+        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        if (audioManager != null) {
+            int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, maxVolume, 0);
+        }
+
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(this, R.raw.background_music);
+            mediaPlayer.setVolume(0.0f, 0.0f);
+            mediaPlayer = MediaPlayer.create(this, R.raw.bg_sound);
+            mediaPlayer.setLooping(true);
+            if (isSoundOn) {
+                mediaPlayer.start();
+            }
+
+        }
+
+
         Button endGame = findViewById(R.id.quitButton);
         endGame.setOnClickListener(new View.OnClickListener() {
             @Override
