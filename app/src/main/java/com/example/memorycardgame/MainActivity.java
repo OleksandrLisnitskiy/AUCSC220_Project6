@@ -22,6 +22,9 @@ import android.media.MediaPlayer;
 import android.media.AudioManager;
 import android.content.Context;
 import android.os.CountDownTimer;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import android.os.Handler;
 
@@ -47,22 +50,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         updateSoundButton();
-        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-        if (audioManager != null) {
-            int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, maxVolume, 0);
-        }
-
-        if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(this, R.raw.background_music);
-            mediaPlayer.setVolume(1.0f, 1.0f);
-            mediaPlayer = MediaPlayer.create(this, R.raw.bg_sound);
-            mediaPlayer.setLooping(true);
-            if (isSoundOn) {
-                mediaPlayer.start();
-            }
-
-        }
+        Sound.init(this);
 
 
         Button endGame = findViewById(R.id.quitButton);
@@ -86,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         for(int i = 0; i < 4; i++){
+
             for(int j = 0; j < 2; j++){
                 System.out.println(game.cardBoard[i][j].getImagePath());
             }
@@ -134,55 +123,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void SoundChange(View v) {
-        isSoundOn = !isSoundOn;
-        if (isSoundOn) {
-            if (!mediaPlayer.isPlaying()) {
-                mediaPlayer.start(); // Start playing only if it's not already playing
-            }
-        } else {
-            mediaPlayer.pause(); // Pause the sound
-        }
+        Sound.toggleSound();
         updateSoundButton();
     }
-    private void updateSoundButton() {
+    protected void updateSoundButton() {
         ImageView button = findViewById(R.id.Sound);
         if (isSoundOn) {
             button.setBackgroundResource(R.drawable.sound_button_on);
         } else {
             button.setBackgroundResource(R.drawable.sound_button_off);
-        }
-    }
-    protected void onResume() {
-        super.onResume();
-        updateSoundButton();
-        if (isSoundOn && mediaPlayer != null && !mediaPlayer.isPlaying()) {
-            mediaPlayer.start();
-        }
-        if (isGamePaused) {
-            startLevelTimer(false);
-            isGamePaused = false;
-        }
-    }
-
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-            mediaPlayer.pause();
-        }
-        if (gameTimer != null) {
-            gameTimer.cancel();
-            isGamePaused = true;
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (mediaPlayer != null) {
-            mediaPlayer.release();
-            mediaPlayer = null;
         }
     }
 
