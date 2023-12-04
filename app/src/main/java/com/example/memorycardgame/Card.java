@@ -4,6 +4,8 @@ public class Card {
 
     private boolean flipped = false;
     private String imagePath;
+
+
     private int[] position = new int[2];
 
     public Card(String imagePath, int[] position){

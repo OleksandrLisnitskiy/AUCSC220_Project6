@@ -41,7 +41,7 @@
             app:srcCompat="@drawable/sound_button_on" />
 
         <ImageView
-            android:id="@+id/imageView15"
+            android:id="@+id/imageView11"
             android:layout_width="121dp"
             android:layout_height="154dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -51,11 +51,10 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.432"
             app:srcCompat="@drawable/card_for_easy_level"
-            android:clickable="true"
-            android:onClick="onCardClick4"/>
+            />
 
         <ImageView
-            android:id="@+id/imageView17"
+            android:id="@+id/imageView21"
             android:layout_width="121dp"
             android:layout_height="154dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -65,11 +64,10 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.649"
             app:srcCompat="@drawable/card_for_easy_level"
-            android:clickable="true"
-            android:onClick="onCardClick6"/>
+            />
 
         <ImageView
-            android:id="@+id/imageView18"
+            android:id="@+id/imageView30"
             android:layout_width="121dp"
             android:layout_height="154dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -79,11 +77,10 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.864"
             app:srcCompat="@drawable/card_for_easy_level"
-            android:clickable="true"
-            android:onClick="onCardClick7"/>
+            />
 
         <ImageView
-            android:id="@+id/imageView13"
+            android:id="@+id/imageView01"
             android:layout_width="121dp"
             android:layout_height="154dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -93,11 +90,10 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.215"
             app:srcCompat="@drawable/card_for_easy_level"
-            android:clickable="true"
-            android:onClick="onCardClick2"/>
+            />
 
         <ImageView
-            android:id="@+id/imageView14"
+            android:id="@+id/imageView10"
             android:layout_width="121dp"
             android:layout_height="154dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -107,11 +103,10 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.432"
             app:srcCompat="@drawable/card_for_easy_level"
-            android:clickable="true"
-            android:onClick="onCardClick3"/>
+            />
 
         <ImageView
-            android:id="@+id/imageView12"
+            android:id="@+id/imageView00"
             android:layout_width="121dp"
             android:layout_height="154dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -121,11 +116,10 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.215"
             app:srcCompat="@drawable/card_for_easy_level"
-            android:clickable="true"
-            android:onClick="onCardClick"/>
+            />
 
         <ImageView
-            android:id="@+id/imageView16"
+            android:id="@+id/imageView20"
             android:layout_width="121dp"
             android:layout_height="154dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -135,11 +129,10 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.649"
             app:srcCompat="@drawable/card_for_easy_level"
-            android:clickable="true"
-            android:onClick="onCardClick5"/>
+            />
 
         <ImageView
-            android:id="@+id/imageView19"
+            android:id="@+id/imageView31"
             android:layout_width="121dp"
             android:layout_height="154dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -149,8 +142,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.866"
             app:srcCompat="@drawable/card_for_easy_level"
-            android:clickable="true"
-            android:onClick="onCardClick8"/>
+            />
 
         <ImageView
             android:id="@+id/imageView36"

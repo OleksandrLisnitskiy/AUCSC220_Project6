@@ -1,5 +1,7 @@
 package com.example.memorycardgame;
 
+import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -11,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 
 import androidx.annotation.RequiresApi;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class EasyLevel extends MainActivity {
@@ -36,47 +41,48 @@ public class EasyLevel extends MainActivity {
                 CreatePopUpWindow(layout);
             }
         });
+
+        List<List<Integer>> imageViewIds = getImageViewIds();
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 2; j++) {
+                ImageView InfinitStone = findViewById(imageViewIds.get(i).get(j));
+                System.out.println(imageViewIds.get(i).get(j));
+                int finalI = i;
+                int finalJ = j;
+                InfinitStone.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        int imageResourceId = getResources().getIdentifier(game.cardBoard[finalI][finalJ].getImagePath(), "drawable", getPackageName());
+                        InfinitStone.setImageResource(imageResourceId);
+                    }
+                });
+            }
+        }
+
     }
 
-    protected void onCreate2(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_easy_level);
+    private List<List<Integer>> getImageViewIds() {
+        List<List<Integer>> imageViewIds = new ArrayList<>();
+        Resources resources = getResources();
+        String packageName = getPackageName();
+
+        for (int i = 0; i < 4; i++) {
+            List<Integer> InnerArray = new ArrayList<>();
+            for (int j = 0; j < 2; j++) {
+                String imageViewIdName = "imageView" + String.valueOf(i) + j;
+                System.out.println(imageViewIdName);
+                int imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
+
+                    InnerArray.add(imageViewId);
+
+            }
+            imageViewIds.add(InnerArray);
+        }
+
+        return imageViewIds;
     }
 
-    public void onCardClick(View view) {
-        ImageView cardImage = findViewById(R.id.imageView12);
-        cardImage.setImageResource(R.drawable.mindstone);
-    }
 
-    public void onCardClick2(View view){
-        ImageView cardImage2 = findViewById(R.id.imageView13);
-        cardImage2.setImageResource(R.drawable.timestone);
-    }
-    public void onCardClick3(View view){
-        ImageView cardImage3 = findViewById(R.id.imageView14);
-        cardImage3.setImageResource(R.drawable.spacestone);
-    }
-    public void onCardClick4(View view){
-        ImageView cardImage4 = findViewById(R.id.imageView15);
-        cardImage4.setImageResource(R.drawable.realitystone);
-    }
-    public void onCardClick5(View view) {
-        ImageView cardImage5 = findViewById(R.id.imageView16);
-        cardImage5.setImageResource(R.drawable.spacestone);
-    }
-
-    public void onCardClick6(View view){
-        ImageView cardImage6 = findViewById(R.id.imageView17);
-        cardImage6.setImageResource(R.drawable.realitystone);
-    }
-    public void onCardClick7(View view){
-        ImageView cardImage7 = findViewById(R.id.imageView18);
-        cardImage7.setImageResource(R.drawable.mindstone);
-    }
-    public void onCardClick8(View view){
-        ImageView cardImage8 = findViewById(R.id.imageView19);
-        cardImage8.setImageResource(R.drawable.timestone);
-    }
 
 
 

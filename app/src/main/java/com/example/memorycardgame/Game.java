@@ -21,6 +21,10 @@ public class Game {
     public long mediumLevelTime = 150 * 1000;
     public long hardLevelTime = 210 * 1000;
     public Card[][] cardBoard;
+    private String[] easyLevelImages = {"spacestone",
+            "mindstone",
+            "timestone",
+            "realitystone"};
 
     public void start(){
         score.restartScore();
@@ -74,7 +78,8 @@ public class Game {
                     temp = random.nextInt(sizeX);
                 }
                 counter.put(temp, (counter.get(temp) + 1));
-                cardBoard[i][j] = new Card(String.valueOf(temp), new int[]{i, j});
+
+                cardBoard[i][j] = new Card(easyLevelImages[temp], new int[]{i, j});
             }
         }
     }
