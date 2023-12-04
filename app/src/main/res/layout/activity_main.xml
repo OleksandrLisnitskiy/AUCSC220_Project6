@@ -25,7 +25,7 @@
         android:id="@+id/frameLayout1"
         android:layout_width="134dp"
         android:layout_height="167dp"
-        android:layout_marginTop="20.5dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/start_menu_card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,26 +35,10 @@
     </FrameLayout>
 
     <android.widget.Button
-        android:id="@+id/startButton"
-        android:layout_width="334dp"
-        android:layout_height="79dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/button_start_menu"
-        android:fontFamily="@font/africavibes"
-        android:onClick="openLevelSelection"
-        android:text="Start"
-        android:textColor="#c4a8ff"
-        android:textSize="30pt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout1"
-        tools:ignore="HardcodedText,MissingConstraints" />
-
-    <android.widget.Button
         android:id="@+id/topScoreButton"
-        android:layout_width="334dp"
-        android:layout_height="79dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="309dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/button_start_menu"
         android:fontFamily="@font/african"
         android:onClick="openTopScore"
@@ -68,8 +52,8 @@
 
     <android.widget.Button
         android:id="@+id/quitButton"
-        android:layout_width="334dp"
-        android:layout_height="79dp"
+        android:layout_width="309dp"
+        android:layout_height="67dp"
         android:background="@drawable/button_start_menu"
         android:fontFamily="@font/african"
         android:text="Quit"
@@ -77,9 +61,26 @@
         android:textSize="30pt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topScoreButton"
-        app:layout_constraintVertical_bias="0.155"
+        app:layout_constraintVertical_bias="0.101"
+        tools:ignore="HardcodedText,MissingConstraints" />
+
+    <android.widget.Button
+        android:id="@+id/startButton"
+        android:layout_width="309dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_start_menu"
+        android:fontFamily="@font/africavibes"
+        android:onClick="openLevelSelection"
+        android:text="Start"
+        android:textColor="#c4a8ff"
+        android:textSize="30pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout1"
         tools:ignore="HardcodedText,MissingConstraints" />
 
     <ImageView
