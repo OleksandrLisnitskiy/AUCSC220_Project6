@@ -24,7 +24,7 @@ import android.content.Context;
 import android.os.CountDownTimer;
 import java.util.Locale;
 import android.os.Handler;
-
+import android.media.MediaPlayer;
 import android.widget.Toast;
 import android.os.Looper;
 
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public static boolean isSoundOn = true;
 
     public static Game game = new Game();
-    private MediaPlayer mediaPlayer;
+    private static MediaPlayer mediaPlayer;
     private TextView timeTextView; // This is the TextView for the timer
     protected CountDownTimer gameTimer;
     private final long interval = 1000; // 1 second interval
@@ -47,26 +47,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         updateSoundButton();
-        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-        if (audioManager != null) {
-            int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, maxVolume, 0);
-        }
-
-        if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(this, R.raw.background_music);
-            mediaPlayer.setVolume(1.0f, 1.0f);
-            mediaPlayer = MediaPlayer.create(this, R.raw.bg_sound);
-            mediaPlayer.setLooping(true);
-            if (isSoundOn) {
-                mediaPlayer.start();
-            }
-
-        }
-
-
+        // Initialize the sound
+        Sound.init(this);
         Button endGame = findViewById(R.id.quitButton);
-
         endGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
@@ -134,55 +117,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void SoundChange(View v) {
-        isSoundOn = !isSoundOn;
-        if (isSoundOn) {
-            if (!mediaPlayer.isPlaying()) {
-                mediaPlayer.start(); // Start playing only if it's not already playing
-            }
-        } else {
-            mediaPlayer.pause(); // Pause the sound
-        }
-        updateSoundButton();
+        Sound.toggleSound(); // Use Sound class to toggle sound
+        updateSoundButton(); // Update the button based on the sound state
     }
-    private void updateSoundButton() {
-        ImageView button = findViewById(R.id.Sound);
-        if (isSoundOn) {
+
+    protected void updateSoundButton() {
+        ImageView button = findViewById(R.id.Sound); // Ensure correct ID
+        if (Sound.isSoundOn()) {
             button.setBackgroundResource(R.drawable.sound_button_on);
         } else {
             button.setBackgroundResource(R.drawable.sound_button_off);
-        }
-    }
-    protected void onResume() {
-        super.onResume();
-        updateSoundButton();
-        if (isSoundOn && mediaPlayer != null && !mediaPlayer.isPlaying()) {
-            mediaPlayer.start();
-        }
-        if (isGamePaused) {
-            startLevelTimer(false);
-            isGamePaused = false;
-        }
-    }
-
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-            mediaPlayer.pause();
-        }
-        if (gameTimer != null) {
-            gameTimer.cancel();
-            isGamePaused = true;
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (mediaPlayer != null) {
-            mediaPlayer.release();
-            mediaPlayer = null;
         }
     }
 
