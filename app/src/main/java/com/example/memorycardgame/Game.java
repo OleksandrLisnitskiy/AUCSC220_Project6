@@ -7,13 +7,16 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class Game {
     Score score = new Score();
+    public List<List<Integer>> flipCounterDict = new ArrayList<>();
     private int difficulty;
     User user = new User();
     public LocalDateTime game_time;
@@ -21,13 +24,34 @@ public class Game {
     public long mediumLevelTime = 150 * 1000;
     public long hardLevelTime = 210 * 1000;
     public Card[][] cardBoard;
-    private String[] easyLevelImages = {"spacestone",
+    private final String[] easyLevelImages = {"spacestone",
             "mindstone",
             "timestone",
             "realitystone"};
+    private final String[] hardLevelImages = {"antman",
+            "avengers",
+            "blackpanther",
+            "blackwidow",
+            "captainamerica",
+            "captainmarvel",
+            "drstrange",
+            "guardians",
+            "hulk",
+            "ironman",
+            "spiderman",
+            "thor"};
+    private final String[] mediumLevelImages = {"antman",
+            "avengers",
+            "blackpanther",
+            "blackwidow",
+            "captainamerica",
+            "captainmarvel",
+            "drstrange",
+            "guardians"};
 
     public void start(){
         score.restartScore();
+        flipCounterDict = new ArrayList<>();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             game_time = LocalDateTime.now();
         }
@@ -43,8 +67,6 @@ public class Game {
                 createCardBoard(6, 4);
                 break;
         }
-
-
     }
 
     public void setDifficulty(int difficulty, Context context) {
@@ -67,19 +89,29 @@ public class Game {
         HashMap<Integer, Integer> counter = new HashMap<>();
         cardBoard = new Card[sizeX][sizeY];
 
-        for (int i = 0; i < sizeX; i++) {
+        for (int i = 0; i < Math.round(sizeX * sizeY/2); i++) {
             counter.put(i, 0);
         }
         for (int i = 0; i < sizeX; i++){
             for (int j = 0; j < sizeY; j++)
             {
-                int temp = random.nextInt(sizeX);
-                while (counter.get(temp) >= sizeY){
-                    temp = random.nextInt(sizeX);
+//                System.out.println();
+                int temp = random.nextInt(Math.round(sizeX * sizeY/2));
+                while (counter.get(temp) >= 2){
+                    temp = random.nextInt(Math.round(sizeX * sizeY/2));
                 }
                 counter.put(temp, (counter.get(temp) + 1));
+                switch (difficulty){
+                    case 1:
+                        cardBoard[i][j] = new Card(easyLevelImages[temp], new int[]{i, j});
+                        break;
+                    case 2:
+                        cardBoard[i][j] = new Card(mediumLevelImages[temp], new int[]{i, j});
+                        break;
+                    case 3:
+                        cardBoard[i][j] = new Card(hardLevelImages[temp], new int[]{i, j});
+                }
 
-                cardBoard[i][j] = new Card(easyLevelImages[temp], new int[]{i, j});
             }
         }
     }
@@ -92,6 +124,7 @@ public class Game {
 
     }
     public void restart(){
+
         this.start();
     }
 

@@ -34,7 +34,7 @@
         app:srcCompat="@drawable/pause_button" />
 
     <ImageView
-        android:id="@+id/imageView04"
+        android:id="@+id/imageView03"
         android:layout_width="85dp"
         android:layout_height="115dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -82,7 +82,7 @@
         app:srcCompat="@drawable/card_for_medium_level" />
 
     <ImageView
-        android:id="@+id/imageView02"
+        android:id="@+id/imageView01"
         android:layout_width="85dp"
         android:layout_height="115dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -130,7 +130,7 @@
         app:srcCompat="@drawable/card_for_medium_level" />
 
     <ImageView
-        android:id="@+id/imageView01"
+        android:id="@+id/imageView00"
         android:layout_width="85dp"
         android:layout_height="115dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -178,7 +178,7 @@
         app:srcCompat="@drawable/card_for_medium_level" />
 
     <ImageView
-        android:id="@+id/imageView03"
+        android:id="@+id/imageView02"
         android:layout_width="85dp"
         android:layout_height="115dp"
         app:layout_constraintBottom_toBottomOf="parent"

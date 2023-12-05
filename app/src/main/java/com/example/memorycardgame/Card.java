@@ -2,8 +2,8 @@ package com.example.memorycardgame;
 
 public class Card {
 
-    private boolean flipped = false;
-    private String imagePath;
+    public boolean flipped = false;
+    private final String imagePath;
 
 
     private int[] position = new int[2];
@@ -14,7 +14,7 @@ public class Card {
 
     }
     public void flip(){
-
+        flipped = !flipped;
     }
     public int[] getPosition(){
         return position;

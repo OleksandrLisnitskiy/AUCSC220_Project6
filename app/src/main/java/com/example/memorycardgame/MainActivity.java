@@ -4,6 +4,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -72,13 +73,13 @@ public class MainActivity extends AppCompatActivity {
         game.start();
 
 
-
-        for(int i = 0; i < 4; i++){
-
-            for(int j = 0; j < 2; j++){
-                System.out.println(game.cardBoard[i][j].getImagePath());
-            }
-        }
+//        TESTING
+//        for(int i = 0; i < 4; i++){
+//
+//            for(int j = 0; j < 2; j++){
+//                System.out.println(game.cardBoard[i][j].getImagePath());
+//            }
+//        }
     }
     public void onButton2Clicked(View v) {
 
@@ -87,12 +88,12 @@ public class MainActivity extends AppCompatActivity {
         game.setDifficulty(2, this);
         game.start();
 
-
-        for(int i = 0; i < 4; i++){
-            for(int j = 0; j < 4; j++){
-                System.out.println(game.cardBoard[i][j].getImagePath());
-            }
-        }
+//        TESTING
+//        for(int i = 0; i < 4; i++){
+//            for(int j = 0; j < 4; j++){
+//                System.out.println(game.cardBoard[i][j].getImagePath());
+//            }
+//        }
     }
 
 
@@ -103,11 +104,12 @@ public class MainActivity extends AppCompatActivity {
         game.setDifficulty(3, this);
         game.start();
 
-        for(int i = 0; i < 6; i++){
-            for(int j = 0; j < 4; j++){
-                System.out.println(game.cardBoard[i][j].getImagePath());
-            }
-        }
+        //        TESTING
+//        for(int i = 0; i < 6; i++){
+//            for(int j = 0; j < 4; j++){
+//                System.out.println(game.cardBoard[i][j].getImagePath());
+//            }
+//        }
     }
 
     public void openLevelSelection(View v){
@@ -124,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void SoundChange(View v) {
         Sound.toggleSound();
+        isSoundOn = Sound.isSoundOn();
         updateSoundButton();
     }
     protected void updateSoundButton() {
@@ -229,6 +232,36 @@ public class MainActivity extends AppCompatActivity {
                 timeLeftInMillis = startTime;
                 startLevelTimer(true);
                 game.restart();
+                List<List<Integer>> imageViewIds;
+                switch (game.getDifficulty()){
+                    case 1:
+                        imageViewIds = getImageViewIds(4, 2);
+                        for (int i = 0; i < 4; i++) {
+                            for (int j = 0; j < 2; j++) {
+                                ImageView card = findViewById(imageViewIds.get(i).get(j));
+                                card.setImageResource(R.drawable.card_for_easy_level);
+                            }
+                            }
+                        break;
+                    case 2:
+                        imageViewIds = getImageViewIds(4, 4);
+                        for (int i = 0; i < 4; i++) {
+                            for (int j = 0; j < 4; j++) {
+                                ImageView card = findViewById(imageViewIds.get(i).get(j));
+                                card.setImageResource(R.drawable.card_for_medium_level);
+                            }
+                        }
+                        break;
+                    case 3:
+                        imageViewIds = getImageViewIds(6, 4);
+                        for (int i = 0; i < 6; i++) {
+                            for (int j = 0; j < 4; j++) {
+                                ImageView card = findViewById(imageViewIds.get(i).get(j));
+                                card.setImageResource(R.drawable.card_for_hard_level);
+                            }
+                        }
+                        break;
+                }
 
 
             }
@@ -244,6 +277,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+    protected List<List<Integer>> getImageViewIds(int sizeX, int sizeY) {
+        List<List<Integer>> imageViewIds = new ArrayList<>();
+        Resources resources = getResources();
+        String packageName = getPackageName();
+
+        for (int i = 0; i < sizeX; i++) {
+            List<Integer> InnerArray = new ArrayList<>();
+            for (int j = 0; j < sizeY; j++) {
+                String imageViewIdName = "imageView" + String.valueOf(i) + j;
+                int imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
+
+                InnerArray.add(imageViewId);
+
+            }
+            imageViewIds.add(InnerArray);
+        }
+
+        return imageViewIds;
     }
 
 }
