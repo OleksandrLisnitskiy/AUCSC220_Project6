@@ -33,7 +33,7 @@ import android.os.Looper;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class MainActivity extends AppCompatActivity {
-    public static boolean isSoundOn = true;
+    protected static boolean isSoundOn = true;
 
     public static Game game = new Game();
     private MediaPlayer mediaPlayer;
@@ -124,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void SoundChange(View v) {
         Sound.toggleSound();
+        isSoundOn = Sound.isSoundOn();
         updateSoundButton();
     }
     protected void updateSoundButton() {
