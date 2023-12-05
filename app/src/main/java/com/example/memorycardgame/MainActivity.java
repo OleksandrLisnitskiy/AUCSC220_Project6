@@ -34,7 +34,7 @@ import android.os.Looper;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class MainActivity extends AppCompatActivity {
-    public static boolean isSoundOn = true;
+    protected static boolean isSoundOn = true;
 
     public static Game game = new Game();
     private MediaPlayer mediaPlayer;
