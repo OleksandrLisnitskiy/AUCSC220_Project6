@@ -162,11 +162,11 @@
             app:srcCompat="@drawable/score_on_the_board" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/scoreEasyLevel"
             android:layout_width="174dp"
             android:layout_height="53dp"
             android:fontFamily="@font/african"
-            android:text="Score: 123"
+            android:text="Score:  0"
             android:textColor="#c4a8ff"
             android:textSize="41sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView36"

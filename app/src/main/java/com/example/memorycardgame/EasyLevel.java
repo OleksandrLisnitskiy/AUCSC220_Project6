@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.SubMenu;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
@@ -22,16 +24,18 @@ import java.util.List;
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class EasyLevel extends MainActivity {
     View layout;
+    List<List<Integer>> imageViewIds;
 
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_easy_level);
         layout = findViewById(R.id.linearLayoutEasy);
         startLevelTimer(false);
         ImageView pauseButton = findViewById(R.id.pauseButton);
+        imageViewIds = getImageViewIds(4, 2);
+        TextView Score = findViewById(R.id.scoreEasyLevel);
 
         pauseButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +47,7 @@ public class EasyLevel extends MainActivity {
             }
         });
 
-        List<List<Integer>> imageViewIds = getImageViewIds(4, 2);
+
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 2; j++) {
                 ImageView InfinitStone = findViewById(imageViewIds.get(i).get(j));
@@ -62,42 +66,85 @@ public class EasyLevel extends MainActivity {
                         game.flipCounterDict.add(coordinates);
                         Resources resources = getResources();
                         String packageName = getPackageName();
-                        if (game.flipCounterDict.size() == 2) {
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (game.flipCounterDict.size() >= 2) {
 
-                            List<Integer> card1 = game.flipCounterDict.get(0);
-                            List<Integer> card2 = game.flipCounterDict.get(1);
-                            if(game.cardBoard[card1.get(0)][card1.get(1)].getImagePath().equals(
-                                    game.cardBoard[card2.get(0)][card2.get(1)].getImagePath())){
-                                game.score.successfulTry();
-                                String imageViewIdName = "imageView" + String.valueOf(card1.get(0)) + (card1.get(1));
-                                int imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
-                                ImageView card = findViewById(imageViewId);
-                                card.setImageResource(R.drawable.empty_background);
-                                imageViewIdName = "imageView" + String.valueOf(card2.get(0)) + (card2.get(1));
-                                imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
-                                card = findViewById(imageViewId);
-                                card.setImageResource(R.drawable.empty_background);
-                                game.flipCounterDict = new ArrayList<>();
+                                    List<Integer> card1 = game.flipCounterDict.get(0);
+                                    List<Integer> card2 = game.flipCounterDict.get(1);
+                                    if(game.cardBoard[card1.get(0)][card1.get(1)].getImagePath().equals(
+                                            game.cardBoard[card2.get(0)][card2.get(1)].getImagePath())){
+                                        Score.setText("Score:  " + game.score.successfulTry());
 
+                                        String imageViewIdName = "imageView" + String.valueOf(card1.get(0)) + (card1.get(1));
+                                        int imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
+                                        ImageView card = findViewById(imageViewId);
+                                        card.setImageResource(R.drawable.empty_background);
+                                        imageViewIdName = "imageView" + String.valueOf(card2.get(0)) + (card2.get(1));
+                                        imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
+                                        card = findViewById(imageViewId);
+                                        card.setImageResource(R.drawable.empty_background);
+                                        game.flipCounterDict = new ArrayList<>();
+
+                                    }
+                                    else {
+                                        Score.setText("Score:  " + game.score.failedTry());
+
+                                        String imageViewIdName = "imageView" + String.valueOf(card1.get(0)) + (card1.get(1));
+                                        int imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
+                                        ImageView card = findViewById(imageViewId);
+                                        card.setImageResource(R.drawable.card_for_easy_level);
+                                        imageViewIdName = "imageView" + String.valueOf(card2.get(0)) + (card2.get(1));
+                                        imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
+                                        card = findViewById(imageViewId);
+                                        card.setImageResource(R.drawable.card_for_easy_level);
+                                        game.flipCounterDict = new ArrayList<>();
+                                    }
+                                    System.out.println(game.score.getScore());
+                                }
                             }
-                            else {
-
-                                String imageViewIdName = "imageView" + String.valueOf(card1.get(0)) + (card1.get(1));
-                                int imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
-                                ImageView card = findViewById(imageViewId);
-                                card.setImageResource(R.drawable.card_for_easy_level);
-                                imageViewIdName = "imageView" + String.valueOf(card2.get(0)) + (card2.get(1));
-                                imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
-                                card = findViewById(imageViewId);
-                                card.setImageResource(R.drawable.card_for_easy_level);
-                                game.flipCounterDict = new ArrayList<>();
-                            }
-                        }
-//
+                        }, 500);
                     }
                 });
             }
         }
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 4; i++) {
+                    for (int j = 0; j < 2; j++) {
+                        int imageResourceId = getResources().getIdentifier(game.cardBoard[i][j].getImagePath(), "drawable", getPackageName());
+                        ImageView InfinitStone = findViewById(imageViewIds.get(i).get(j));
+
+                        InfinitStone.setImageResource(imageResourceId);
+                    }
+                }
+            }
+        }, 500);
+
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 4; i++) {
+                    for (int j = 0; j < 2; j++) {
+                        ImageView InfinitStone = findViewById(imageViewIds.get(i).get(j));
+
+                        InfinitStone.setImageResource(R.drawable.card_for_easy_level);
+                    }
+                }
+            }
+        }, 1500);
+
+
 
     }
 }

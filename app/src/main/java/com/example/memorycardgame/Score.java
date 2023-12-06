@@ -8,7 +8,12 @@ public class Score {
     }
 
     public int failedTry(){
-        score -= 20;
+        if (score < 20){
+            score = 0;
+        }
+        else {
+            score -= 20;
+        }
         return score;
     }
 

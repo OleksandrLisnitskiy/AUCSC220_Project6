@@ -312,11 +312,11 @@
         app:layout_constraintVertical_bias="0.789" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/scoreHardLevel"
         android:layout_width="177dp"
         android:layout_height="60dp"
         android:fontFamily="@font/african"
-        android:text="Score:  123"
+        android:text="Score:  0"
         android:textColor="#c4a8ff"
         android:textSize="41sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView70"

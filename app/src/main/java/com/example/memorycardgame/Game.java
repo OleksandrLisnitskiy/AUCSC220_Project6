@@ -40,14 +40,14 @@ public class Game {
             "ironman",
             "spiderman",
             "thor"};
-    private final String[] mediumLevelImages = {"antman",
-            "avengers",
-            "blackpanther",
-            "blackwidow",
-            "captainamerica",
-            "captainmarvel",
-            "drstrange",
-            "guardians"};
+    private final String[] mediumLevelImages = {"avengersymbol",
+            "blackpanthersymbol",
+            "hammer",
+            "spider",
+            "symbol1",
+            "symbol2",
+            "symbol3",
+            "shield"};
 
     public void start(){
         score.restartScore();
@@ -95,7 +95,6 @@ public class Game {
         for (int i = 0; i < sizeX; i++){
             for (int j = 0; j < sizeY; j++)
             {
-//                System.out.println();
                 int temp = random.nextInt(Math.round(sizeX * sizeY/2));
                 while (counter.get(temp) >= 2){
                     temp = random.nextInt(Math.round(sizeX * sizeY/2));
