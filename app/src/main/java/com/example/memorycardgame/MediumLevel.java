@@ -3,6 +3,7 @@ package com.example.memorycardgame;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -12,6 +13,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class MediumLevel extends MainActivity {
@@ -35,6 +39,28 @@ public class MediumLevel extends MainActivity {
                 CreatePopUpWindow(layout);
             }
         });
+        List<List<Integer>> imageViewIds = getImageViewIds(4, 4);
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                ImageView InfinitStone = findViewById(imageViewIds.get(i).get(j));
+                System.out.println(imageViewIds.get(i).get(j));
+                int finalI = i;
+                int finalJ = j;
+                InfinitStone.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        int imageResourceId = getResources().getIdentifier(game.cardBoard[finalI][finalJ].getImagePath(), "drawable", getPackageName());
+//                        if (game.flipCounter < 2) {
+//                            InfinitStone.setImageResource(imageResourceId);
+//                            game.flipCounter += 1;
+//                        }
+                        InfinitStone.setImageResource(imageResourceId);
+                    }
+                });
+            }
+        }
     }
+
+
 
 }
