@@ -34,9 +34,7 @@ import android.os.Looper;
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class MainActivity extends AppCompatActivity {
     protected static boolean isSoundOn = true;
-
     public static Game game = new Game();
-    private MediaPlayer mediaPlayer;
     private TextView timeTextView; // This is the TextView for the timer
     protected CountDownTimer gameTimer;
     private final long interval = 1000; // 1 second interval
@@ -50,9 +48,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         updateSoundButton();
-        Sound.init(this);
-
-
+        Sound.init(this); // initialise the sound
         Button endGame = findViewById(R.id.quitButton);
 
         endGame.setOnClickListener(new View.OnClickListener() {
@@ -70,9 +66,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         game.setDifficulty(1, this);
         game.start();
-
-
-
         for(int i = 0; i < 4; i++){
 
             for(int j = 0; j < 2; j++){
