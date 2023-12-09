@@ -37,18 +37,18 @@ public class MainActivity extends AppCompatActivity {
     protected static boolean isSoundOn = true;
     public static Game game = new Game();
     private TextView timeTextView; // This is the TextView for the timer
-    protected CountDownTimer gameTimer;
+    protected CountDownTimer gameTimer;//object for managing the game timer.
     private final long interval = 1000; // 1 second interval
-    protected boolean isGamePaused = false;
-    public long startTime;
-    private long timeLeftInMillis = -1;
+    protected boolean isGamePaused = false; // flag to indicate if the game is paused.
+    public long startTime;// variable to store the start time of the timer.
+    private long timeLeftInMillis = -1;// variable to store the remaining time in milliseconds.
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        updateSoundButton();
+        updateSoundButton();//updates the sound button
         Sound.init(this); // initialise the sound
         Button endGame = findViewById(R.id.quitButton);
 
@@ -130,61 +130,63 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void SoundChange(View v) {
-        Sound.toggleSound();
-        isSoundOn = Sound.isSoundOn();
-        updateSoundButton();
+        Sound.toggleSound();// Toggles the sound state (on/off).
+        isSoundOn = Sound.isSoundOn();// Updates the 'isSoundOn' variable with the current sound state.
+        updateSoundButton();// Calls the method to update the visual state of the sound button.
     }
     protected void updateSoundButton() {
         ImageView button = findViewById(R.id.Sound);
-        if (isSoundOn) {
+        if (isSoundOn) {// If sound is enabled:
             button.setBackgroundResource(R.drawable.sound_button_on);
-        } else {
+        } else {// If sound is disabled:
             button.setBackgroundResource(R.drawable.sound_button_off);
         }
     }
 
 
     public void startLevelTimer(boolean restart) {
-        timeTextView = findViewById(R.id.gameTimer);
+        timeTextView = findViewById(R.id.gameTimer);//Initializing the TextView for the timer.
 
         if (gameTimer != null) {
-            gameTimer.cancel();
+            gameTimer.cancel();// Cancel the existing timer if it's not null.
         }
         if(restart ||timeLeftInMillis == -1){
-            switch (game.getDifficulty()){
+            switch (game.getDifficulty()){// Setting the initial time based on game difficulty.
                 case 1:
-                    timeLeftInMillis = game.easyLevelTime;
+                    timeLeftInMillis = game.easyLevelTime;// Time for easy level.
                     break;
                 case 2:
-                    timeLeftInMillis = game.mediumLevelTime;
+                    timeLeftInMillis = game.mediumLevelTime;// Time for medium level.
                     break;
                 case 3:
-                    timeLeftInMillis = game.hardLevelTime;
+                    timeLeftInMillis = game.hardLevelTime;// Time for hard level.
                     break;
             }
         }
+        // Creating a new CountDownTimer with the remaining time and interval.
         gameTimer = new CountDownTimer(timeLeftInMillis, interval) {
-            public void onTick(long millisUntilFinished) {
-                timeLeftInMillis = millisUntilFinished;
-                updateTimerText(timeLeftInMillis);
+            public void onTick(long millisUntilFinished) { // Method called at every interval of the timer.
+                timeLeftInMillis = millisUntilFinished;// Updating the remaining time.
+                updateTimerText(timeLeftInMillis);  // Updating the timer display.
+
             }
 
-            public void onFinish() {
-                timeTextView.setText("Time: 00:00");
-                showGameEnd();
+            public void onFinish() {// Method called when the timer finishes.
+                timeTextView.setText("Time: 00:00");// Setting the timer text to zero after game ends
+                showGameEnd();// Calling method to handle the end of the game method below.
             }
-        };gameTimer.start();
+        };gameTimer.start();// Starting the timer.
     }
 
-    private void updateTimerText(long timeMillis) {
-        int minutes = (int) (timeMillis / 1000) / 60;
-        int seconds = (int) (timeMillis / 1000) % 60;
-        String timeFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+    private void updateTimerText(long timeMillis) { // Method to format and update the timer text.
+        int minutes = (int) (timeMillis / 1000) / 60;// Calculating minutes.
+        int seconds = (int) (timeMillis / 1000) % 60;// Calculating seconds.
+        String timeFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);// Formatting time in mm:ss format.
         timeTextView.setText("Time: " + timeFormatted);
     }
 
 
-    private void showGameEnd() {
+    private void showGameEnd() {// Method to handle actions at the end of the timer.
         // Show a toast message for immediate feedback
         Toast.makeText(this, "Time's Up!", Toast.LENGTH_SHORT).show();
 

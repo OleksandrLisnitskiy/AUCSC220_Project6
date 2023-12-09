@@ -10,14 +10,14 @@ import androidx.annotation.RequiresApi;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class Sound extends MainActivity {
-    private static MediaPlayer mediaPlayer;
-    protected static boolean isSoundOn = true;
+    private static MediaPlayer mediaPlayer;// Static MediaPlayer instance to play sound.
+    protected static boolean isSoundOn = true;// Boolean flag to track if the sound is on or off.
 
-    public static void init(Context context) {
+    public static void init(Context context) {// Method to initialize the sound.
         if (mediaPlayer == null) {
             mediaPlayer = MediaPlayer.create(context, R.raw.bg_sound);
-            mediaPlayer.setLooping(true); // Set looping
-            mediaPlayer.setVolume(1.0f, 1.0f);
+            mediaPlayer.setLooping(true); // Set looping so that the theme songs never stops
+            mediaPlayer.setVolume(1.0f, 1.0f);// Sets volume to maximum.
 
             // Set volume to max
             AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
@@ -33,30 +33,32 @@ public class Sound extends MainActivity {
         }
     }
     public static void toggleSound() {
-        isSoundOn = !isSoundOn;
+        isSoundOn = !isSoundOn;// Toggles the state of the sound.
         if (isSoundOn) {
             if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
-                mediaPlayer.start();
+                mediaPlayer.start();// Start the MediaPlayer if it's not already playing.
             }
+
         } else {
             if (mediaPlayer != null) {
-                mediaPlayer.pause();
+                mediaPlayer.pause();// Pause the MediaPlayer.
             }
         }
     }
 
-    public static boolean isSoundOn() {
+    public static boolean isSoundOn() {// Method to return the current state of the sound.
         return isSoundOn;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     protected void onResume() {
         super.onResume();
-        updateSoundButton();
+        updateSoundButton();// Updates the sound button's appearance based on the sound state.
+        // Restart sound playback if sound is on and the MediaPlayer is not playing.
         if (isSoundOn && mediaPlayer != null && !mediaPlayer.isPlaying()) {
             mediaPlayer.start();
         }
-        if (isGamePaused) {
+        if (isGamePaused) { // Resume game timer if the game was paused.
             startLevelTimer(false);
             isGamePaused = false;
         }
@@ -67,12 +69,9 @@ public class Sound extends MainActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        // Pause sound playback if the MediaPlayer is playing.
         if (mediaPlayer != null && mediaPlayer.isPlaying()) {
             mediaPlayer.pause();
-        }
-        if (gameTimer != null) {
-            gameTimer.cancel();
-            isGamePaused = true;
         }
     }
 
@@ -80,6 +79,7 @@ public class Sound extends MainActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        // Release and nullify the MediaPlayer when the activity is destroyed.
         if (mediaPlayer != null) {
             mediaPlayer.release();
             mediaPlayer = null;

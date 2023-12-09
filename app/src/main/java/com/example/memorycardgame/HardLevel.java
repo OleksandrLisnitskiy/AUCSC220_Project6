@@ -25,7 +25,7 @@ import java.util.List;
 public class HardLevel extends MainActivity {
     View layout;
     List<List<Integer>> imageViewIds;
-    private int matchedPairs = 0;
+    private int matchedPairs = 0; // to keep track of matched pairs in this level
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class HardLevel extends MainActivity {
         pauseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (gameTimer != null) {
+                if (gameTimer != null) {//checks if the game timer is not null and if not cancels the timer
                     gameTimer.cancel();
                 }
                 CreatePopUpWindow(layout);
@@ -86,7 +86,8 @@ public class HardLevel extends MainActivity {
                                         game.flipCounterDict = new ArrayList<>();
                                         matchedPairs++;
                                         if (matchedPairs == 12) { // Check if all pairs are matched
-                                            winPopUp(v);                                        }
+                                            winPopUp(v);  // if all cards are matched then congratulations popup screen will appear
+                                        }
                                     }
                                     else {
                                         Score.setText("Score:  " + game.score.failedTry());
