@@ -23,6 +23,7 @@ import java.util.List;
 public class MediumLevel extends MainActivity {
     View layout;
     List<List<Integer>> imageViewIds;
+    private int matchedPairs = 0;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +83,10 @@ public class MediumLevel extends MainActivity {
                                         card = findViewById(imageViewId);
                                         card.setImageResource(R.drawable.empty_background);
                                         game.flipCounterDict = new ArrayList<>();
+                                        matchedPairs++;
+                                        if (matchedPairs == 8) { // Check if all pairs are matched
+                                            setContentView(R.layout.congratulations_popup);
+                                        }
 
                                     }
                                     else {

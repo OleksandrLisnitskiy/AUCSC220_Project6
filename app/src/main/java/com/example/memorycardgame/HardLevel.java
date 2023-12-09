@@ -25,6 +25,7 @@ import java.util.List;
 public class HardLevel extends MainActivity {
     View layout;
     List<List<Integer>> imageViewIds;
+    private int matchedPairs = 0;
 
     @Override
 
@@ -84,6 +85,10 @@ public class HardLevel extends MainActivity {
                                         card = findViewById(imageViewId);
                                         card.setImageResource(R.drawable.empty_background);
                                         game.flipCounterDict = new ArrayList<>();
+                                        matchedPairs++;
+                                        if (matchedPairs == 12) { // Check if all pairs are matched
+                                            setContentView(R.layout.congratulations_popup);
+                                        }
 
                                     }
                                     else {
