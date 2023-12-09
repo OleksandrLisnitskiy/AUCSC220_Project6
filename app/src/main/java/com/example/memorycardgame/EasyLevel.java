@@ -80,15 +80,18 @@ public class EasyLevel extends MainActivity {
                                         String imageViewIdName = "imageView" + String.valueOf(card1.get(0)) + (card1.get(1));
                                         int imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
                                         ImageView card = findViewById(imageViewId);
+                                        card.setOnClickListener(null);
                                         card.setImageResource(R.drawable.empty_background);
                                         imageViewIdName = "imageView" + String.valueOf(card2.get(0)) + (card2.get(1));
                                         imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
+
                                         card = findViewById(imageViewId);
                                         card.setImageResource(R.drawable.empty_background);
+                                        card.setOnClickListener(null);
                                         game.flipCounterDict = new ArrayList<>();
                                         matchedPairs++;
                                         if (matchedPairs == 4) { // Check if all pairs are matched
-                                            setContentView(R.layout.congratulations_popup);
+                                            winPopUp(v);
                                         }
                                     }
                                     else {

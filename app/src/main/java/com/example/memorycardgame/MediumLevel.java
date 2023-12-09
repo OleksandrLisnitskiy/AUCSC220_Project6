@@ -85,8 +85,7 @@ public class MediumLevel extends MainActivity {
                                         game.flipCounterDict = new ArrayList<>();
                                         matchedPairs++;
                                         if (matchedPairs == 8) { // Check if all pairs are matched
-                                            setContentView(R.layout.congratulations_popup);
-                                        }
+                                            winPopUp(v);                                        }
                                     }
                                     else {
                                         Score.setText("Score:  " + game.score.failedTry());

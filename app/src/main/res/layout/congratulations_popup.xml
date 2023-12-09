@@ -17,16 +17,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <ImageView
-            android:id="@+id/imageView15"
-            android:layout_width="514dp"
-            android:layout_height="972dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background" />
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/frameLayout"
             android:layout_width="388dp"
@@ -44,7 +34,7 @@
                 android:layout_height="93dp"
                 android:background="@drawable/button_start_menu"
                 android:fontFamily="@font/africavibes"
-                android:onClick="openLevelSelection"
+                android:onClick="backButton"
                 android:text="Home"
                 android:textColor="#c4a8ff"
                 android:textSize="30pt"
