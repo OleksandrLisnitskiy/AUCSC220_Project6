@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         endGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                System.exit(0);
+                finish();
             }
         });
     }
@@ -199,9 +199,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void backButton(View v){
-
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        finish();
     }
 
     public void CreatePopUpWindow(View layout) {
@@ -274,13 +272,14 @@ public class MainActivity extends AppCompatActivity {
         quitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-
                 game.quit(0);
                 gameTimer.cancel();
                 popupWindow.dismiss();
-                backButton(view);
+                finish();
             }
         });
+
+
 
     }
     protected List<List<Integer>> getImageViewIds(int sizeX, int sizeY) {
