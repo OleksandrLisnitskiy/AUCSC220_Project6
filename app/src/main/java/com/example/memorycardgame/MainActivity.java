@@ -60,7 +60,23 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Function to send user to the Medium difficulty level during the level selection activity
+     * @param v - View of the current layout User is in.
+     */
+    public void onButton2Clicked(View v) {
 
+        Intent intent = new Intent(this, MediumLevel.class); // create Intent with the activity to send user to
+        startActivity(intent); // use the intent to start new activity
+        game.setDifficulty(2, this); // Set the difficulty of current game to Medium(2)
+        game.start();
+
+    }
+
+    /**
+     * Function to send user to the Easy difficulty level during the level selection activity
+     * @param v - View of the current layout User is in.
+     */
     public void onButton1Clicked(View v) {
 
         Intent intent = new Intent(this, EasyLevel.class);
@@ -68,63 +84,34 @@ public class MainActivity extends AppCompatActivity {
         game.setDifficulty(1, this);
         game.start();
 
-        for(int i = 0; i < 4; i++){
-
-            for(int j = 0; j < 2; j++){
-                System.out.println(game.cardBoard[i][j].getImagePath());
-            }
-        }
-
-
-
-//        TESTING
-//        for(int i = 0; i < 4; i++){
-//
-//            for(int j = 0; j < 2; j++){
-//                System.out.println(game.cardBoard[i][j].getImagePath());
-//            }
-//        }
-
-    }
-    public void onButton2Clicked(View v) {
-
-        Intent intent = new Intent(this, MediumLevel.class);
-        startActivity(intent);
-        game.setDifficulty(2, this);
-        game.start();
-
-//        TESTING
-//        for(int i = 0; i < 4; i++){
-//            for(int j = 0; j < 4; j++){
-//                System.out.println(game.cardBoard[i][j].getImagePath());
-//            }
-//        }
     }
 
-
+    /**
+     * Function to send user to the Hard difficulty level during the level selection activity
+     * @param v - View of the current layout User is in.
+     */
     public void onButton3Clicked(View v) {
-
         Intent intent = new Intent(this, HardLevel.class);
         startActivity(intent);
         game.setDifficulty(3, this);
         game.start();
 
-        //        TESTING
-//        for(int i = 0; i < 6; i++){
-//            for(int j = 0; j < 4; j++){
-//                System.out.println(game.cardBoard[i][j].getImagePath());
-//            }
-//        }
     }
 
+    /**
+     * Function to send user to the Level Selection Activity from the main page.
+     * @param v - View of the current layout User is in.
+     */
     public void openLevelSelection(View v){
-
         Intent intent = new Intent(this, LevelSelection.class);
         startActivity(intent);
     }
 
+    /**
+     * Function to send user to the Top Score Activity from the main page.
+     * @param v - View of the current layout User is in.
+     */
     public void openTopScore(View v){
-
         Intent intent = new Intent(this, TopScore.class);
         startActivity(intent);
     }
@@ -200,120 +187,128 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Sends User to the last activity he was before
+     * @ View v - view to work with in this function
+     */
     public void backButton(View v){
-        finish();
+
+        finish(); // close current activity
     }
 
+    /**
+     * Function to show the pop up with congratulations to the user after he finish the game.
+     * Works only when all matches are found but not when quits the game by pressing "quit" button.
+     * @param layout - layout on which to show the pop up
+     */
     public void winPopUp(View layout){
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View popUpView = inflater.inflate(R.layout.congratulations_popup, null);
-        int width = ViewGroup.LayoutParams.MATCH_PARENT;
-        int height = ViewGroup.LayoutParams.MATCH_PARENT;
-        boolean focusable = false;
+        int width = ViewGroup.LayoutParams.MATCH_PARENT; // Setting width of the pop up
+        int height = ViewGroup.LayoutParams.MATCH_PARENT; // Setting height of pop up
+        boolean focusable = false; // this attribute is responsible for closing the pop up is user clicks outside of it
         PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
         layout.post(new Runnable() {
             @Override
             public void run() {
-                popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0);
+                popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0); // Show the pop up at the specific location
             }
         });
 
     }
+
+    /**
+     * Function to display pause pop up after user press pause button during the game.
+     * This pop up includes Resume, Restart and Quit buttons. Actions for the are coded below.
+     * @param layout - view on which to display the pop up.
+     */
     public void CreatePopUpWindow(View layout) {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popUpView = inflater.inflate(R.layout.pause_window, null);
-        int width = ViewGroup.LayoutParams.MATCH_PARENT;
-        int height = ViewGroup.LayoutParams.MATCH_PARENT;
-        boolean focusable = false;
-        PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
+        View popUpView = inflater.inflate(R.layout.pause_window, null); // Converting .xml file to the View for later operations
+        int width = ViewGroup.LayoutParams.MATCH_PARENT; // Setting width of the pop up
+        int height = ViewGroup.LayoutParams.MATCH_PARENT; // Setting height of pop up
+        boolean focusable = false; // this attribute is responsible for closing the pop up is user clicks outside of it
+        PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable); // Creating a pop up view from previously set parameters
         layout.post(new Runnable() {
             @Override
             public void run() {
-                popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0);
+                popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0); // show the popup at the specific location
             }
         });
-        Button resumButton, quitButton, restartButton;
+        Button resumButton, quitButton, restartButton; // Initializing button variables
 
-        resumButton =  popUpView.findViewById(R.id.resumeButton);
+        resumButton =  popUpView.findViewById(R.id.resumeButton); // Getting button view from the pop up layout
         quitButton =  popUpView.findViewById(R.id.stopGameButton);
         restartButton =  popUpView.findViewById(R.id.restartButton);
 
         resumButton.setOnClickListener(new View.OnClickListener() {
+            // function to add action to the button when it is clicked
             @Override
             public void onClick(View view){
-                popupWindow.dismiss();
-                startLevelTimer(false);
+                popupWindow.dismiss(); // close pop up
+                startLevelTimer(false); // resume the timer to continue game
             }
         });
         restartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                popupWindow.dismiss();
-                timeLeftInMillis = startTime;
-                startLevelTimer(true);
-                game.restart();
-                List<List<Integer>> imageViewIds;
-                switch (game.getDifficulty()){
-                    case 1:
-                        imageViewIds = getImageViewIds(4, 2);
-                        for (int i = 0; i < 4; i++) {
-                            for (int j = 0; j < 2; j++) {
-                                ImageView card = findViewById(imageViewIds.get(i).get(j));
-                                card.setImageResource(R.drawable.card_for_easy_level);
-                            }
-                            }
-                        break;
-                    case 2:
-                        imageViewIds = getImageViewIds(4, 4);
-                        for (int i = 0; i < 4; i++) {
-                            for (int j = 0; j < 4; j++) {
-                                ImageView card = findViewById(imageViewIds.get(i).get(j));
-                                card.setImageResource(R.drawable.card_for_medium_level);
-                            }
-                        }
-                        break;
-                    case 3:
-                        imageViewIds = getImageViewIds(6, 4);
-                        for (int i = 0; i < 6; i++) {
-                            for (int j = 0; j < 4; j++) {
-                                ImageView card = findViewById(imageViewIds.get(i).get(j));
-                                card.setImageResource(R.drawable.card_for_hard_level);
-                            }
-                        }
-                        break;
+                popupWindow.dismiss(); // close pop up
+                timeLeftInMillis = startTime; // set the timer to initial value on this level
+                startLevelTimer(true); // restart the timer
+                game.restart(); // restart the game logic(score, new game board, new random positions)
+                List<List<Integer>> imageViewIds; // Initializing array for id's of cards on the board
+
+                //Get the dimensions of the card board
+                int cardBoardX = game.cardBoard.length; // top to bottom
+                int cardBoardY = game.cardBoard[0].length; // left to right
+
+                imageViewIds = getImageViewIds(cardBoardX, cardBoardY); // get the array of ID's of cards on the board
+
+                // Assign each card on the board new background
+                for (int i = 0; i < cardBoardX; i++) {
+                    for (int j = 0; j < cardBoardY; j++) {
+                        ImageView card = findViewById(imageViewIds.get(i).get(j)); // get the view of specific card from the layout depending on ID
+                        card.setImageResource(R.drawable.card_for_easy_level); // change the background so the user will see the back of the card
+                    }
                 }
-
-
             }
         });
+
         quitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                game.quit(0);
-                gameTimer.cancel();
-                popupWindow.dismiss();
-                finish();
+                game.quit(0); // forced exit from the game
+                gameTimer.cancel(); // stop the timer
+                popupWindow.dismiss(); // close the popup
+                finish(); // close current layout
             }
         });
 
 
 
     }
+
+    /**
+     * Function to get the ID's of the cards on the board to later change the background of those cards.
+     * @param sizeX - size of the current game board from top to the bottom
+     * @param sizeY - size of the current board left to the right
+     * @return Nested list of ID's of the cards on the board
+     */
     protected List<List<Integer>> getImageViewIds(int sizeX, int sizeY) {
-        List<List<Integer>> imageViewIds = new ArrayList<>();
+        List<List<Integer>> imageViewIds = new ArrayList<>(); // initialize empty nested array for later inputting the ID's
         Resources resources = getResources();
-        String packageName = getPackageName();
+        String packageName = getPackageName(); // get the name of the current package
 
         for (int i = 0; i < sizeX; i++) {
-            List<Integer> InnerArray = new ArrayList<>();
+            List<Integer> InnerArray = new ArrayList<>(); // Initialize empty array to pass the ID's there and later add to the main array as an inner array
             for (int j = 0; j < sizeY; j++) {
-                String imageViewIdName = "imageView" + String.valueOf(i) + j;
-                int imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
+                String imageViewIdName = "imageView" + String.valueOf(i) + j; // crate the ID's of each card as it is written in xml file
+                int imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName); // Get the actual ID of the card by it's name created before
 
-                InnerArray.add(imageViewId);
+                InnerArray.add(imageViewId); // add the ID to the inner array
 
             }
-            imageViewIds.add(InnerArray);
+            imageViewIds.add(InnerArray); // add the array of ID's to the main array
         }
 
         return imageViewIds;

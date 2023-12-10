@@ -107,7 +107,6 @@ public class EasyLevel extends MainActivity {
                                         card.setImageResource(R.drawable.card_for_easy_level);
                                         game.flipCounterDict = new ArrayList<>();
                                     }
-                                    System.out.println(game.score.getScore());
                                 }
                             }
                         }, 500);
