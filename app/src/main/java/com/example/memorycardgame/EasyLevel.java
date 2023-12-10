@@ -60,6 +60,7 @@ public class EasyLevel extends MainActivity {
 
 
                         InfinitStone.setImageResource(imageResourceId);
+                        InfinitStone.setEnabled(false);
                         List<Integer> coordinates = new ArrayList<>();
                         coordinates.add(finalI);
                         coordinates.add(finalJ);
@@ -102,10 +103,12 @@ public class EasyLevel extends MainActivity {
                                         int imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
                                         ImageView card = findViewById(imageViewId);
                                         card.setImageResource(R.drawable.card_for_easy_level);
+                                        card.setEnabled(true);
                                         imageViewIdName = "imageView" + String.valueOf(card2.get(0)) + (card2.get(1));
                                         imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
                                         card = findViewById(imageViewId);
                                         card.setImageResource(R.drawable.card_for_easy_level);
+                                        card.setEnabled(true);
                                         game.flipCounterDict = new ArrayList<>();
                                     }
                                 }
