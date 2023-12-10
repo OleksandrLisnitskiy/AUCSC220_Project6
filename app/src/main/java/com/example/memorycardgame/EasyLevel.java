@@ -91,7 +91,8 @@ public class EasyLevel extends MainActivity {
                                         game.flipCounterDict = new ArrayList<>();
                                         matchedPairs++;
                                         if (matchedPairs == 4) { // Check if all pairs are matched
-                                            winPopUp(v); // if all cards are matched then congratulations popup screen will appear
+                                            winPopUp(v);// if all cards are matched then congratulations popup screen will appear
+                                            gameTimer.cancel();
                                         }
                                     }
                                     else {

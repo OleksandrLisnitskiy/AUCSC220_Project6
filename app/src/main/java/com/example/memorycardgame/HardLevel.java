@@ -87,6 +87,7 @@ public class HardLevel extends MainActivity {
                                         matchedPairs++;
                                         if (matchedPairs == 12) { // Check if all pairs are matched
                                             winPopUp(v);  // if all cards are matched then congratulations popup screen will appear
+                                            gameTimer.cancel();
                                         }
                                     }
                                     else {

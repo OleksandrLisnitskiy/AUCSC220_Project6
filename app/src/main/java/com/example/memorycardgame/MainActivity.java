@@ -180,8 +180,19 @@ public class MainActivity extends AppCompatActivity {
         // Handler to add a delay before switching the view
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
-            public void run() {
-                setContentView(R.layout.activity_main);
+            public void run(View layout) {
+                LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+                View popUpView = inflater.inflate(R.layout.loosing_popup, null);
+                int width = ViewGroup.LayoutParams.MATCH_PARENT; // Setting width of the pop up
+                int height = ViewGroup.LayoutParams.MATCH_PARENT; // Setting height of pop up
+                boolean focusable = false; // this attribute is responsible for closing the pop up is user clicks outside of it
+                PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
+                layout.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0); // Show the pop up at the specific location
+                    }
+                });
             }
         }, 3000); // 3 second wait
 
