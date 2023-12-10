@@ -47,18 +47,21 @@ public class EasyLevel extends MainActivity {
             }
         });
 
-
+        /*
+        The nested for loop is used to initialize and set up click listeners for cards in a 4x2 grid
+         */
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 2; j++) {
+                //Used to reference image at i,j position of the grid.
                 ImageView InfinitStone = findViewById(imageViewIds.get(i).get(j));
                 int finalI = i;
                 int finalJ = j;
+                //Used to set listener for each card in the grid.
                 InfinitStone.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        //Used to get the imageResourceId of the card clicked.
                         int imageResourceId = getResources().getIdentifier(game.cardBoard[finalI][finalJ].getImagePath(), "drawable", getPackageName());
-
-
                         InfinitStone.setImageResource(imageResourceId);
                         List<Integer> coordinates = new ArrayList<>();
                         coordinates.add(finalI);
