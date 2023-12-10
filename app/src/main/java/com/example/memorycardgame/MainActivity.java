@@ -175,12 +175,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void showGameEnd() {// Method to handle actions at the end of the timer.
         // Show a toast message for immediate feedback
-        Toast.makeText(this, "Time's Up!", Toast.LENGTH_SHORT).show();
-
+        View layout = findViewById(R.id.imageView00);
         // Handler to add a delay before switching the view
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+
             @Override
-            public void run(View layout) {
+            public void run() {
+
                 LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
                 View popUpView = inflater.inflate(R.layout.loosing_popup, null);
                 int width = ViewGroup.LayoutParams.MATCH_PARENT; // Setting width of the pop up
@@ -194,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-        }, 3000); // 3 second wait
+        }, 2000); // 3 second wait
 
     }
 
