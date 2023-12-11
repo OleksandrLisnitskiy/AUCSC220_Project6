@@ -12,11 +12,14 @@ import androidx.annotation.RequiresApi;
 public class Sound extends MainActivity {
     private static MediaPlayer mediaPlayer;// Static MediaPlayer instance to play sound.
     protected static boolean isSoundOn = true;// Boolean flag to track if the sound is on or off.
-
+    /**
+     * This method initializes the MediaPlayer with a background sound, sets it to loop continuously
+     * at maximum volume using Audio manager.
+     */
     public static void init(Context context) {// Method to initialize the sound.
         if (mediaPlayer == null) {
             mediaPlayer = MediaPlayer.create(context, R.raw.bg_sound);
-            mediaPlayer.setLooping(true); // Set looping so that the theme songs never stops
+            mediaPlayer.setLooping(true); // Set looping to true so that the theme songs never stops
             mediaPlayer.setVolume(1.0f, 1.0f);// Sets volume to maximum.
 
             // Set volume to max
@@ -32,6 +35,9 @@ public class Sound extends MainActivity {
             }
         }
     }
+    /**
+     * This method switches the sound state on or off and starts or pauses the MediaPlayer accordingly.
+     */
     public static void toggleSound() {
         isSoundOn = !isSoundOn;// Toggles the state of the sound.
         if (isSoundOn) {
@@ -51,6 +57,10 @@ public class Sound extends MainActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
+    /**
+     * Method refreshes the sound button's display and restarts sound playback if sound is enabled
+     * and the MediaPlayer isn't playing.
+     */
     protected void onResume() {
         super.onResume();
         updateSoundButton();// Updates the sound button's appearance based on the sound state.
@@ -58,15 +68,15 @@ public class Sound extends MainActivity {
         if (isSoundOn && mediaPlayer != null && !mediaPlayer.isPlaying()) {
             mediaPlayer.start();
         }
-        if (isGamePaused) { // Resume game timer if the game was paused.
-            startLevelTimer(false);
-            isGamePaused = false;
-        }
     }
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
+    /**
+     * Method pauses the sound playback if the MediaPlayer is currently playing when the activity
+     * enters the paused state.
+     */
     protected void onPause() {
         super.onPause();
         // Pause sound playback if the MediaPlayer is playing.
@@ -77,6 +87,9 @@ public class Sound extends MainActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
+    /**
+     * Method releases resources and nullifies the MediaPlayer when the activity is being destroyed.
+     */
     protected void onDestroy() {
         super.onDestroy();
         // Release and nullify the MediaPlayer when the activity is destroyed.

@@ -116,12 +116,18 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, TopScore.class);
         startActivity(intent);
     }
-
+    /**
+     * Method designed to be called when the user interacts with a sound control element .
+     * @param v - View of the current layout User is in.
+     */
     public void SoundChange(View v) {
         Sound.toggleSound();// Toggles the sound state (on/off).
         isSoundOn = Sound.isSoundOn();// Updates the 'isSoundOn' variable with the current sound state.
         updateSoundButton();// Calls the method to update the visual state of the sound button.
     }
+    /**
+     * Method to update the visual appearance of a button based on the current sound state.
+     */
     protected void updateSoundButton() {
         ImageView button = findViewById(R.id.Sound);
         if (isSoundOn) {// If sound is enabled:
@@ -130,7 +136,11 @@ public class MainActivity extends AppCompatActivity {
             button.setBackgroundResource(R.drawable.sound_button_off);
         }
     }
-
+    /**
+     * This method initializes or resets a countdown timer for a game level based on the game's
+     * difficulty, updating the display accordingly.
+     * @param restart - determines whether to reset the timer to its initial value
+     */
 
     public void startLevelTimer(boolean restart) {
         timeTextView = findViewById(R.id.gameTimer);//Initializing the TextView for the timer.
@@ -165,14 +175,19 @@ public class MainActivity extends AppCompatActivity {
             }
         };gameTimer.start();// Starting the timer.
     }
-
+    /**
+     * Method formats the remaining time in minutes and seconds and updates the timer's TextView display.
+     * @param timeMillis - represents the remaining time in milliseconds
+     */
     private void updateTimerText(long timeMillis) { // Method to format and update the timer text.
         int minutes = (int) (timeMillis / 1000) / 60;// Calculating minutes.
         int seconds = (int) (timeMillis / 1000) % 60;// Calculating seconds.
         String timeFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);// Formatting time in mm:ss format.
         timeTextView.setText("Time: " + timeFormatted);
     }
-
+    /**
+     * Method to display the the popup as soon as the timer and the game ends.
+     */
 
     private void showGameEnd() {// Method to handle actions at the end of the timer.
         // Show a toast message for immediate feedback
@@ -196,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-        }, 2000); // 3 second wait
+        }, 2000); // 2 second wait
 
     }
 
