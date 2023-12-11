@@ -22,24 +22,24 @@ public class TopScore extends MainActivity {
 
         SQLiteManager sqLiteManager = SQLiteManager.instanceOfDatabase(this);
 
-         List<Object> easyTopValue = sqLiteManager.getTopScores(1);
-         List<Object> mediumTopValue = sqLiteManager.getTopScores(2);
-         List<Object> hardTopValue = sqLiteManager.getTopScores(3);
+         List<Object> easyTopValue = sqLiteManager.getTopScores(1); // Get the Easy level top time and score from the dataBase
+         List<Object> mediumTopValue = sqLiteManager.getTopScores(2); // Get the Medium level top time and score from the dataBase
+         List<Object> hardTopValue = sqLiteManager.getTopScores(3); // Get the Hard level top time and score from the dataBase
 
-        TextView easyTopScore = findViewById(R.id.scoreEasy);
-        TextView mediumTopScore = findViewById(R.id.scoreMedium);
-        TextView hardTopScore = findViewById(R.id.scoreHard);
-        TextView easyTopTime = findViewById(R.id.timeEasy);
-        TextView mediumTopTime = findViewById(R.id.timeMedium);
-        TextView hardTopTime = findViewById(R.id.timeHard);
+        TextView easyTopScore = findViewById(R.id.scoreEasy); // Getting the textView of the Easy level Top Score
+        TextView mediumTopScore = findViewById(R.id.scoreMedium); // Getting the textView of the Medium level Top Score
+        TextView hardTopScore = findViewById(R.id.scoreHard); // Getting the textView of the Hard level Top Score
+        TextView easyTopTime = findViewById(R.id.timeEasy); // Getting the textView of the Easy level Top Time
+        TextView mediumTopTime = findViewById(R.id.timeMedium); // Getting the textView of the Easy level Top Time
+        TextView hardTopTime = findViewById(R.id.timeHard); // Getting the textView of the Easy level Top Time
 
-        easyTopScore.setText(String.valueOf(easyTopValue.get(0)));
-        mediumTopScore.setText(String.valueOf(mediumTopValue.get(0)));
-        hardTopScore.setText(String.valueOf(hardTopValue.get(0)));
+        easyTopScore.setText(String.valueOf(easyTopValue.get(0))); // Set the new value for Easy top Score
+        mediumTopScore.setText(String.valueOf(mediumTopValue.get(0))); // Set the new value for Medium top Score
+        hardTopScore.setText(String.valueOf(hardTopValue.get(0))); // Set the new value for Hard top Score
 
-        easyTopTime.setText(intToMinutes((int) easyTopValue.get(1)));
-        mediumTopTime.setText( intToMinutes((int) mediumTopValue.get(1)));
-        hardTopTime.setText(intToMinutes((int) hardTopValue.get(1)));
+        easyTopTime.setText(intToMinutes((int) easyTopValue.get(1))); // Set the new value for Easy top Time
+        mediumTopTime.setText( intToMinutes((int) mediumTopValue.get(1))); // Set the new value for Medium top Time
+        hardTopTime.setText(intToMinutes((int) hardTopValue.get(1))); // Set the new value for Hard top Time
     }
 
     public String intToMinutes(int millis){

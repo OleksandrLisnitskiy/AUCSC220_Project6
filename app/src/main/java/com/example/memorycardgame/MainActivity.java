@@ -36,6 +36,7 @@ import android.os.Looper;
 public class MainActivity extends AppCompatActivity {
     protected static boolean isSoundOn = true;
     public static Game game = new Game();
+    protected int matchedPairs = 0;// to keep track of matched pairs in this level
     private TextView timeTextView; // This is the TextView for the timer
     protected CountDownTimer gameTimer;//object for managing the game timer.
     private final long interval = 1000; // 1 second interval
@@ -267,6 +268,23 @@ public class MainActivity extends AppCompatActivity {
                 popupWindow.dismiss(); // close pop up
                 timeLeftInMillis = startTime; // set the timer to initial value on this level
                 startLevelTimer(true); // restart the timer
+
+                TextView Score;
+                switch (game.getDifficulty()) {
+                    case 1:
+                        Score = findViewById(R.id.scoreEasyLevel);
+                        Score.setText("Score:  0");
+                        break;
+                    case 2:
+                        Score = findViewById(R.id.scoreMediumLevel);
+                        Score.setText("Score:  0");
+                        break;
+                    case 3:
+                        Score = findViewById(R.id.scoreHardLevel);
+                        Score.setText("Score:  0");
+                        break;
+                }
+                matchedPairs = 0;
                 game.restart(); // restart the game logic(score, new game board, new random positions)
                 List<List<Integer>> imageViewIds; // Initializing array for id's of cards on the board
 
@@ -283,7 +301,36 @@ public class MainActivity extends AppCompatActivity {
                         card.setImageResource(R.drawable.card_for_easy_level); // change the background so the user will see the back of the card
                     }
                 }
-            }
+                new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            for (int i = 0; i < 4; i++) {
+                                for (int j = 0; j < 2; j++) {
+                                    int imageResourceId = getResources().getIdentifier(game.cardBoard[i][j].getImagePath(), "drawable", getPackageName());
+                                    ImageView InfinitStone = findViewById(imageViewIds.get(i).get(j));
+
+                                    InfinitStone.setImageResource(imageResourceId);
+                                    InfinitStone.setEnabled(true);
+                                }
+                            }
+                        }
+                    }, 500);
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            for (int i = 0; i < 4; i++) {
+                                for (int j = 0; j < 2; j++) {
+                                    ImageView InfinitStone = findViewById(imageViewIds.get(i).get(j));
+
+                                    InfinitStone.setImageResource(R.drawable.card_for_easy_level);
+                                }
+                            }
+                        }
+                    }, 3000);
+
+                }
+
         });
 
         quitButton.setOnClickListener(new View.OnClickListener() {

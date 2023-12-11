@@ -25,11 +25,11 @@ import java.util.List;
 public class HardLevel extends MainActivity {
     View layout;
     List<List<Integer>> imageViewIds;
-    private int matchedPairs = 0; // to keep track of matched pairs in this level
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        matchedPairs = 0;
         setContentView(R.layout.activity_hard_level);
         layout = findViewById(R.id.linearLayoutHard);
         TextView Score = findViewById(R.id.scoreHardLevel);

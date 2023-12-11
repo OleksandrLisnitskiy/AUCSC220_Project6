@@ -25,11 +25,10 @@ import java.util.List;
 public class EasyLevel extends MainActivity {
     View layout;
     List<List<Integer>> imageViewIds;
-    private int matchedPairs = 0;// to keep track of matched pairs in this level
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        matchedPairs = 0;
         setContentView(R.layout.activity_easy_level);
         layout = findViewById(R.id.linearLayoutEasy);
         startLevelTimer(false);// calls method to start level timer
@@ -84,14 +83,14 @@ public class EasyLevel extends MainActivity {
                                         String imageViewIdName = "imageView" + String.valueOf(card1.get(0)) + (card1.get(1));
                                         int imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
                                         ImageView card = findViewById(imageViewId);
-                                        card.setOnClickListener(null);
+                                        card.setEnabled(false);
                                         card.setImageResource(R.drawable.empty_background);
                                         imageViewIdName = "imageView" + String.valueOf(card2.get(0)) + (card2.get(1));
                                         imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
 
                                         card = findViewById(imageViewId);
                                         card.setImageResource(R.drawable.empty_background);
-                                        card.setOnClickListener(null);
+                                        card.setEnabled(false);
                                         game.flipCounterDict = new ArrayList<>();
                                         matchedPairs++;
                                         if (matchedPairs == 4) { // Check if all pairs are matched
