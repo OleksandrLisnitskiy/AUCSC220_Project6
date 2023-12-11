@@ -20,11 +20,10 @@ public class TopScore extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top_score);
 
-        SQLiteManager sqLiteManager = SQLiteManager.instanceOfDatabase(this);
 
-         List<Object> easyTopValue = sqLiteManager.getTopScores(1); // Get the Easy level top time and score from the dataBase
-         List<Object> mediumTopValue = sqLiteManager.getTopScores(2); // Get the Medium level top time and score from the dataBase
-         List<Object> hardTopValue = sqLiteManager.getTopScores(3); // Get the Hard level top time and score from the dataBase
+         List<Object> easyTopValue = game.user.getTopScore(1); // Get the Easy level top time and score from the dataBase
+         List<Object> mediumTopValue = game.user.getTopScore(2); // Get the Medium level top time and score from the dataBase
+         List<Object> hardTopValue = game.user.getTopScore(3); // Get the Hard level top time and score from the dataBase
 
         TextView easyTopScore = findViewById(R.id.scoreEasy); // Getting the textView of the Easy level Top Score
         TextView mediumTopScore = findViewById(R.id.scoreMedium); // Getting the textView of the Medium level Top Score

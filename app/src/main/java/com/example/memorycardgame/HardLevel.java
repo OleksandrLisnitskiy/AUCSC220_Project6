@@ -113,7 +113,7 @@ public class HardLevel extends MainActivity {
                                         if (matchedPairs == 12) { // Check if all pairs are matched
                                             winPopUp(v);  // if all cards are matched then congratulations popup screen will appear
                                             gameTimer.cancel();
-                                            long timeToComplete = game.easyLevelTime -  timeLeftInMillis;
+                                            long timeToComplete = game.hardLevelTime -  timeLeftInMillis;
 
                                             game.quit(timeToComplete);
                                         }

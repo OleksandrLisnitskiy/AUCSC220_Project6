@@ -56,7 +56,6 @@ public class                                                                    
         db.execSQL(sql.toString());
 
 
-
     }
 
     @Override
@@ -82,8 +81,18 @@ public class                                                                    
 
 
     public void updateTopScore(String topScore, long topTime, int difficulty){
+        SQLiteDatabase dbReader = this.getReadableDatabase();
+        Cursor result = dbReader.rawQuery("SELECT * FROM  " + TABLE_NAME, null);
+
         SQLiteDatabase db = this.getWritableDatabase();
 
+        if(result.getCount() == 0) {
+            for (int i = 0; i < 3; i++) {
+                db.execSQL("INSERT INTO ScoreDB (ScoreDB, Score, Duration) VALUES (" + (i+1) + ", 0, 0)");
+                System.out.println("Row " + i + " is added!");
+            }
+        }
+        result.close();
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(DURATION_FIELD, topTime);

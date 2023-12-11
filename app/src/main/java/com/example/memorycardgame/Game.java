@@ -73,7 +73,7 @@ public class Game {
 
     public void setDifficulty(int difficulty, Context context) {
         this.difficulty = difficulty;
-        user.sqLiteManager = SQLiteManager.instanceOfDatabase(context); // Create the instance of the DataBase
+
 
     }
 

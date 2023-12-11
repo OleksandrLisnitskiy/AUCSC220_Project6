@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         updateSoundButton();//updates the sound button
         Sound.init(this); // initialise the sound
         Button endGame = findViewById(R.id.quitButton);
-
+        game.user.sqLiteManager = SQLiteManager.instanceOfDatabase(this); // Create the instance of the DataBase
         endGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
