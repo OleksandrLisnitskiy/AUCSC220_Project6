@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-        }, 2000); // 3 second wait
+        }, 2000); // 2 second wait
 
     }
 
