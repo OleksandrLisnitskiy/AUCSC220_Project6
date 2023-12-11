@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 finish();
+                Sound.stopSound(); // Stop the sound playback
             }
         });
     }
@@ -115,6 +116,13 @@ public class MainActivity extends AppCompatActivity {
     public void openTopScore(View v){
         Intent intent = new Intent(this, TopScore.class);
         startActivity(intent);
+    }
+    /**
+     * Method ensures that the sound button's visual state is updated
+     */
+    protected void onResume() {
+        super.onResume();
+        updateSoundButton();
     }
     /**
      * Method designed to be called when the user interacts with a sound control element .
@@ -319,8 +327,8 @@ public class MainActivity extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            for (int i = 0; i < 4; i++) {
-                                for (int j = 0; j < 2; j++) {
+                            for (int i = 0; i < game.cardBoard.length; i++) {
+                                for (int j = 0; j < game.cardBoard[0].length; j++) {
                                     int imageResourceId = getResources().getIdentifier(game.cardBoard[i][j].getImagePath(), "drawable", getPackageName());
                                     ImageView InfinitStone = findViewById(imageViewIds.get(i).get(j));
 
@@ -334,8 +342,8 @@ public class MainActivity extends AppCompatActivity {
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            for (int i = 0; i < 4; i++) {
-                                for (int j = 0; j < 2; j++) {
+                            for (int i = 0; i < game.cardBoard.length; i++) {
+                                for (int j = 0; j < game.cardBoard[0].length; j++) {
                                     ImageView InfinitStone = findViewById(imageViewIds.get(i).get(j));
 
                                     InfinitStone.setImageResource(R.drawable.card_for_easy_level);

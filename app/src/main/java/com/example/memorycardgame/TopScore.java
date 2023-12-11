@@ -43,7 +43,6 @@ public class TopScore extends MainActivity {
     }
 
     public String intToMinutes(int millis){
-         // Replace this with your actual milliseconds value
 
         // Create a Duration object from milliseconds
         Duration duration = Duration.ofMillis(millis);

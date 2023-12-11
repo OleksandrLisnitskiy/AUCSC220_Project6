@@ -24,6 +24,7 @@ public class Score {
     }
 
     public int restartScore(){//Resets the score to 0. Used when the user restarts the game.
+        score = 0;
         return score;
     }
 }

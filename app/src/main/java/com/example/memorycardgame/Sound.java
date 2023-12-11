@@ -56,46 +56,18 @@ public class Sound extends MainActivity {
         return isSoundOn;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    /**
-     * Method refreshes the sound button's display and restarts sound playback if sound is enabled
-     * and the MediaPlayer isn't playing.
-     */
-    protected void onResume() {
-        super.onResume();
-        updateSoundButton();// Updates the sound button's appearance based on the sound state.
-        // Restart sound playback if sound is on and the MediaPlayer is not playing.
-        if (isSoundOn && mediaPlayer != null && !mediaPlayer.isPlaying()) {
-            mediaPlayer.start();
-        }
-    }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    @Override
     /**
-     * Method pauses the sound playback if the MediaPlayer is currently playing when the activity
-     * enters the paused state.
+     * This method stops playing the background sound when the user quits the game
      */
-    protected void onPause() {
-        super.onPause();
-        // Pause sound playback if the MediaPlayer is playing.
-        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-            mediaPlayer.pause();
-        }
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    @Override
-    /**
-     * Method releases resources and nullifies the MediaPlayer when the activity is being destroyed.
-     */
-    protected void onDestroy() {
-        super.onDestroy();
-        // Release and nullify the MediaPlayer when the activity is destroyed.
-        if (mediaPlayer != null) {
-            mediaPlayer.release();
-            mediaPlayer = null;
+    public static void stopSound() {
+        if (mediaPlayer != null) { // Check if the MediaPlayer has been initialized
+            if (mediaPlayer.isPlaying()) { // Check if the MediaPlayer is currently playing
+                mediaPlayer.stop(); // Stop the playback
+            }
+            mediaPlayer.release(); // Release the resources used by the MediaPlayer
+            mediaPlayer = null; // Set mediaPlayer to null to indicate it's no longer usable
         }
     }
 
