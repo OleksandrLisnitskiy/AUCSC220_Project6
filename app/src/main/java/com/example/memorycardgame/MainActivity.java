@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private final long interval = 1000; // 1 second interval
     protected boolean isGamePaused = false; // flag to indicate if the game is paused.
     public long startTime;// variable to store the start time of the timer.
-    private long timeLeftInMillis = -1;// variable to store the remaining time in milliseconds.
+    public long timeLeftInMillis = -1;// variable to store the remaining time in milliseconds.
 
 
     @Override

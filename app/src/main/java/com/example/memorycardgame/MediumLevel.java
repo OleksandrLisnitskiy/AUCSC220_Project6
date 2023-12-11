@@ -87,6 +87,9 @@ public class MediumLevel extends MainActivity {
                                         if (matchedPairs == 8) { // Check if all pairs are matched
                                             winPopUp(v);   // if all cards are matched then congratulations popup screen will appear
                                             gameTimer.cancel();
+                                            long timeToComplete = game.easyLevelTime -  timeLeftInMillis;
+
+                                            game.quit(timeToComplete);
                                         }
                                     }
                                     else {

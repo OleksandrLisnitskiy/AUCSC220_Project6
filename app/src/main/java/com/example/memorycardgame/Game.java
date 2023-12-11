@@ -117,7 +117,9 @@ public class Game {
     public void quit(long timeToComplete){
 
         List<Object> lastTop = user.getTopScore(difficulty);
-        if ((int) lastTop.get(0) < score.getScore() && (long) lastTop.get(1) > timeToComplete ){
+        System.out.println("Top Score: " + lastTop.get(0) + "Game Score: " + score.getScore());
+        System.out.println("Top Time: " + lastTop.get(1) + "Game Time: " + timeToComplete);
+        if ((int) lastTop.get(0) < score.getScore() || (int) lastTop.get(1) > timeToComplete ){
             user.setNewTopScore(String.valueOf(score.getScore()), timeToComplete, difficulty);
         }
 
