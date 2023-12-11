@@ -57,8 +57,18 @@ public class Game {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             game_time = LocalDateTime.now(); // set the date of the game to the current date
         }
-
-        createCardBoard(cardBoard.length, cardBoard[0].length); // Create the card board with random cards on each position depending on the difficulty
+        switch (difficulty){
+        // Create the card board with random cards on each position depending on the difficulty
+            case 1:
+                createCardBoard(4, 2);
+                break;
+            case 2:
+                createCardBoard(4, 4);
+                break;
+            case 3:
+                createCardBoard(6, 4);
+                break;
+        }
     }
 
     public void setDifficulty(int difficulty, Context context) {
