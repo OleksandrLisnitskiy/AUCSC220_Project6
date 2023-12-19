@@ -64,13 +64,17 @@ public class MediumLevel extends MainActivity {
                         Set ImageResource of the card clicked and then disables the card to avoid it
                         from being clicked again.
                          */
-                        InfinitStone.setImageResource(imageResourceId);
-                        InfinitStone.setEnabled(false);
-                        List<Integer> coordinates = new ArrayList<>();
-                        //Add coordinates of the card clicked to Array.
-                        coordinates.add(finalI);
-                        coordinates.add(finalJ);
-                        game.flipCounterDict.add(coordinates);
+                        if (game.flipCounterDict.size() < 2) {
+                            flipFront(InfinitStone, imageResourceId);
+
+                            InfinitStone.setEnabled(false);
+                            List<Integer> coordinates = new ArrayList<>();
+                            //Add coordinates of the card clicked to Array.
+                            coordinates.add(finalI);
+                            coordinates.add(finalJ);
+                            game.flipCounterDict.add(coordinates);
+
+                        }
                         Resources resources = getResources();
                         String packageName = getPackageName();
                         new Handler().postDelayed(new Runnable() {
@@ -126,22 +130,21 @@ public class MediumLevel extends MainActivity {
                                         int imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
                                         //Flip back unmatched card.
                                         ImageView card = findViewById(imageViewId);
-                                        card.setImageResource(R.drawable.card_for_easy_level);
+                                        flipBack(card);
                                         //Enabling the click listeners for first card.
                                         card.setEnabled(true);
                                         imageViewIdName = "imageView" + String.valueOf(card2.get(0)) + (card2.get(1));
                                         imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
                                         card = findViewById(imageViewId);
-                                        card.setImageResource(R.drawable.card_for_medium_level);
+                                        flipBack(card);
                                         //Enabling the click listeners for second card.
                                         card.setEnabled(true);
                                         //Resets the flipCounterDict for the next flip.
                                         game.flipCounterDict = new ArrayList<>();
                                     }
-                                    System.out.println(game.score.getScore()); //TEST
                                 }
                             }
-                        }, 500);
+                        }, 1000);
                     }
                 });
             }
@@ -165,11 +168,11 @@ public class MediumLevel extends MainActivity {
                         int imageResourceId = getResources().getIdentifier(game.cardBoard[i][j].getImagePath(), "drawable", getPackageName());
                         ImageView InfinitStone = findViewById(imageViewIds.get(i).get(j));
 
-                        InfinitStone.setImageResource(imageResourceId);
+                        flipFront(InfinitStone, imageResourceId);
                     }
                 }
             }
-        }, 500);
+        }, 250);
 
 
         //Delays the execution to hide the card images after 3000 milliseconds by running a nested for loop.
@@ -180,11 +183,11 @@ public class MediumLevel extends MainActivity {
                     for (int j = 0; j < 4; j++) {
                         ImageView InfinitStone = findViewById(imageViewIds.get(i).get(j));
                         //Sets the card image to a default back of the card image.
-                        InfinitStone.setImageResource(R.drawable.card_for_medium_level);
+                        flipBack(InfinitStone);
                     }
                 }
             }
-        }, 3000);
+        }, 3250);
 
 
 

@@ -57,7 +57,6 @@ public class Sound extends MainActivity {
     }
 
 
-
     /**
      * This method stops playing the background sound when the user quits the game
      */

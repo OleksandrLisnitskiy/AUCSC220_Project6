@@ -20,6 +20,7 @@ import androidx.annotation.RequiresApi;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.IntFunction;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class EasyLevel extends MainActivity {
@@ -67,15 +68,20 @@ public class EasyLevel extends MainActivity {
                         Set ImageResource of the card clicked and then disables the card to avoid it
                          from being clicked again.
                          */
-                        InfinitStone.setImageResource(imageResourceId);
-                        InfinitStone.setEnabled(false);
-                        List<Integer> coordinates = new ArrayList<>();
-                        //Add coordinates of the card clicked to Array.
-                        coordinates.add(finalI);
-                        coordinates.add(finalJ);
-                        game.flipCounterDict.add(coordinates);
+                        if (game.flipCounterDict.size() < 2) {
+                            flipFront(InfinitStone, imageResourceId);
+
+                            InfinitStone.setEnabled(false);
+                            List<Integer> coordinates = new ArrayList<>();
+                            //Add coordinates of the card clicked to Array.
+                            coordinates.add(finalI);
+                            coordinates.add(finalJ);
+                            game.flipCounterDict.add(coordinates);
+
+                        }
                         Resources resources = getResources();
                         String packageName = getPackageName();
+
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             /**
@@ -134,21 +140,26 @@ public class EasyLevel extends MainActivity {
                                         int imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
                                         //Flip back unmatched card.
                                         ImageView card = findViewById(imageViewId);
-                                        card.setImageResource(R.drawable.card_for_easy_level);
+//                                        card.setImageResource(R.drawable.card_for_easy_level);
+                                        flipBack(card);
                                         //Enabling the click listeners for first card.
                                         card.setEnabled(true);
                                         imageViewIdName = "imageView" + String.valueOf(card2.get(0)) + (card2.get(1));
                                         imageViewId = resources.getIdentifier(imageViewIdName, "id", packageName);
                                         card = findViewById(imageViewId);
-                                        card.setImageResource(R.drawable.card_for_easy_level);
+                                        flipBack(card);
+
+//                                        card.setImageResource(R.drawable.card_for_easy_level);
                                         //Enabling the click listeners for second card.
                                         card.setEnabled(true);
                                         //Resets the flipCounterDict for the next flip.
                                         game.flipCounterDict = new ArrayList<>();
                                     }
+//
                                 }
+
                             }
-                        }, 500);
+                        }, 1000);
                     }
                 });
             }
@@ -172,11 +183,11 @@ public class EasyLevel extends MainActivity {
                         int imageResourceId = getResources().getIdentifier(game.cardBoard[i][j].getImagePath(), "drawable", getPackageName());
                         ImageView InfinitStone = findViewById(imageViewIds.get(i).get(j));
 
-                        InfinitStone.setImageResource(imageResourceId);
+                        flipFront(InfinitStone, imageResourceId);
                     }
                 }
             }
-        }, 500);
+        }, 250);
 
 
         //Delays the execution to hide the card images after 1500 milliseconds by running a nested for loop.
@@ -186,12 +197,12 @@ public class EasyLevel extends MainActivity {
                 for (int i = 0; i < 4; i++) {
                     for (int j = 0; j < 2; j++) {
                         ImageView InfinitStone = findViewById(imageViewIds.get(i).get(j));
+                        flipBack(InfinitStone);
                         //Sets the card image to a default back of the card image.
-                        InfinitStone.setImageResource(R.drawable.card_for_easy_level);
                     }
                 }
             }
-        }, 1500);
+        }, 1750);
 
 
 

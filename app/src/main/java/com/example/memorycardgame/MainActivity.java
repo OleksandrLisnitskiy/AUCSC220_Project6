@@ -3,6 +3,7 @@ package com.example.memorycardgame;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Build;
@@ -19,9 +20,7 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import android.media.MediaPlayer;
-import android.media.AudioManager;
-import android.content.Context;
+
 import android.os.CountDownTimer;
 
 import java.util.ArrayList;
@@ -29,7 +28,7 @@ import java.util.List;
 import java.util.Locale;
 import android.os.Handler;
 
-import android.widget.Toast;
+
 import android.os.Looper;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
@@ -288,6 +287,7 @@ public class MainActivity extends AppCompatActivity {
         restartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
+
                 popupWindow.dismiss(); // close pop up
                 timeLeftInMillis = startTime; // set the timer to initial value on this level
                 startLevelTimer(true); // restart the timer
@@ -394,6 +394,40 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return imageViewIds;
+    }
+
+    protected void flipFront(ImageView cardView, int image) {
+
+
+        ObjectAnimator animator = ObjectAnimator.ofFloat(cardView, "rotationY", 0f, 180f );
+        animator.setDuration(500); // Adjust the duration as needed
+        animator.start();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            /**
+             * The following method is used to run the game mechanics.
+             */
+            public void run() {
+                cardView.setImageResource(image);
+            }}, 250);
+
+    }
+
+    protected void flipBack(ImageView cardView) {
+
+
+        ObjectAnimator animator = ObjectAnimator.ofFloat(cardView, "rotationY", 180f, 0f );
+        animator.setDuration(500); // Adjust the duration as needed
+        animator.start();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            /**
+             * The following method is used to run the game mechanics.
+             */
+            public void run() {
+                cardView.setImageResource(R.drawable.card_for_easy_level);
+            }}, 250);
+
     }
 
 }

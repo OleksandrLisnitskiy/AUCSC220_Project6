@@ -88,7 +88,7 @@ public class                                                                    
 
         if(result.getCount() == 0) {
             for (int i = 0; i < 3; i++) {
-                db.execSQL("INSERT INTO ScoreDB (ScoreDB, Score, Duration) VALUES (" + (i+1) + ", 0, 0)");
+                db.execSQL("INSERT INTO ScoreDB (ScoreDB, Score, Duration) VALUES (" + ( i+1) + ", 0, 0)");
                 System.out.println("Row " + i + " is added!");
             }
         }
